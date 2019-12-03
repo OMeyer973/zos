@@ -12,7 +12,7 @@ String inputString = "";              // a string to hold incoming data
 bool inputStringComplete = false;     // whether the string is complete
 
 // HARDWARE VARS
-int sensorPins[4] = {A0,A1,A2,A3};   // Pins in which the sensors are plugged
+int sensorPins[4] = {A0,A1,A2,A3};   // Pins in which the sensorStates are plugged
 
 int stripLen = 40;                   // number of LEDs on the strips
 
@@ -53,7 +53,7 @@ int lianaBack[4] = {-1,-1,-1,-1};
 
 bool A_lianaFilling[4]; // specific at Action scene
 
-bool sensors[4] = {false,false,false,false};
+bool sensorStates[4] = {false,false,false,false};
 
 // ---------------------------------------------------------------------
 // SETUP & LOOP
@@ -135,17 +135,26 @@ void initScene(char scene) {
 }
 
 // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
-// get current value from the sensors and update 
+// get current value from the sensorStates and update 
 // the boolean values we use in our program
 void GetSensorInput() {
   //Serial.print("sensor values [");
   int sensorValue =0;
   for (int i=0; i<4; i++) {
     sensorValue = analogRead(sensorPins[i]);
-    sensors[i] = (sensorValue < 128);
+    bool newSensorState = sensorValue < 128;
+
+    // on sensor state change
+    if (newSensorState != sensorStates[i]) {
+      if (currScene == 'I') {
+        I_notifyUnityOfLianaChange(i, newSensorState);
+      }
+    }
+    
+    sensorStates[i] = newSensorState;
 
     //Serial.print(", ");
-    //Serial.print(sensors[i]);    
+    //Serial.print(sensorStates[i]);    
   }
   //Serial.println("]");
 }
@@ -205,7 +214,7 @@ void D_init() {
   for(int i=0; i<4; i++) {
     lianaFront[i] = -1;
     lianaBack[i] = -1;
-    sensors[i] = 0; // optional
+    sensorStates[i] = 0; // optional
   }
 }
 
@@ -253,8 +262,19 @@ void I_init() {
   for(int i=0; i<4; i++) {
     lianaFront[i] = stripLen;
     lianaBack[i] = stripLen;
-    sensors[i] = 0; // optional
+    sensorStates[i] = 0; // optional
   }
+}
+
+// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+// notify unity of new state of liana
+void I_notifyUnityOfLianaChange(int liana, bool newSensorState) {
+  if (newSensorState == true) {
+     Serial.print(">I");
+  } else {
+     Serial.print(">O");
+  }
+  Serial.println(liana);
 }
 
 // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
@@ -262,10 +282,10 @@ void I_init() {
 // scene I : small gauge based on interaction
 // /!\ gauge is at end of LED strip !
 void I_updateLianas() {
-  static int actionStripLen = 20;
+  static int IdleStripLen = 20;
   for (int i=0; i<4; i++) {
-    if (sensors[i]) {
-      if (lianaFront[i] > stripLen - actionStripLen) {
+    if (sensorStates[i]) {
+      if (lianaFront[i] > stripLen - IdleStripLen) {
         lianaFront[i] --;
       }
     } else {
@@ -293,7 +313,7 @@ void A_initLiana(int i) {
   lianaFront[i] = stripLen;
   lianaBack[i] = stripLen;
   A_lianaFilling[i] = true;
-  sensors[i] = 0; // optional
+  sensorStates[i] = 0; // optional
 }
 
 // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
@@ -311,7 +331,6 @@ void A_initLiana(int i) {
 // foooooooooooooob-------- <- other end of strip and erase all
 
 void A_updateLianas() {
-  static int actionStripLen = 20;
 
   for (int i=0; i<4; i++) {
     if (A_lianaFilling[i]) {
@@ -326,13 +345,15 @@ void A_updateLianas() {
 // 1st part of the liana update
 void A_fillLiana(int i) {
   //lianaFront moves forward when sensor is activated (1st part)
-  if (sensors[i]) {
-    if (lianaFront[i] > 0) {
+  if (sensorStates[i]) {
+    if (lianaFront[i] >= 0) {
       lianaFront[i] --;
 
       // is true for one frame when the liana has been filled entirely
       if (lianaFront[i] <= 0) {
-        // todo : send message to unity
+        // todo : send trigger message to unity
+        Serial.print(">L");
+        Serial.println(i);
         A_lianaFilling[i] = false;
         lianaBack[i] = stripLen;
         return;
@@ -349,8 +370,12 @@ void A_fillLiana(int i) {
 // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 // 2nd part of the liana update
 void A_eraseLiana(int i) {
-  lianaBack[i]--;
-  if (lianaBack[i] < 0){
+  if (lianaBack[i] >= 0){
+    lianaBack[i]--;
+    return;
+  } //else
+  // allow new action only if we first let go of the liana 
+  if (sensorStates[i] == false) {
     A_initLiana(i);
   }
 }

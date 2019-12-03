@@ -50,7 +50,7 @@ namespace Zos
     // (command only executed when Arduino is in Demo scene)
     public void TriggerLiana(int i)
     {
-      Debug.Log("Unity triggers liana " + i + " on Arduino side");
+      //Debug.Log("Unity triggers liana " + i + " on Arduino side");
       SendToArduino("" + (char)Command.TriggerLiana + i);
     }
     #endregion
@@ -89,7 +89,7 @@ namespace Zos
       }
       else
       {
-        Debug.Log("Message arrived: " + message);
+        Debug.Log("Arduino: " + message);
         DecodeMessage(message);
       }
     }
@@ -105,21 +105,21 @@ namespace Zos
         if (msg[1] == (char)Command.TriggerLiana)
         {
           Debug.Assert('0' <= msg[2] && msg[2] <= '9');
-          Debug.Log("Arduino triggers liana " + (msg[2] - '0') + " on unity side");
+          //Debug.Log("Arduino triggers liana " + (msg[2] - '0') + " on unity side");
           simonEngine.TriggerLiana(msg[2] - '0');
         }
 
         if (msg[1] == (char)Command.LianaOn)
         {
           Debug.Assert('0' <= msg[2] && msg[2] <= '9');
-          Debug.Log("Arduino sets liana " + (msg[2] - '0') + " up on unity side");
+          //Debug.Log("Arduino sets liana " + (msg[2] - '0') + " up on unity side");
           simonEngine.SetLianaState(msg[2] - '0', true);
         }
 
         if (msg[1] == (char)Command.LianaOff)
         {
           Debug.Assert('0' <= msg[2] && msg[2] <= '9');
-          Debug.Log("Arduino sets liana " + (msg[2] - '0') + " down on unity side");
+          //Debug.Log("Arduino sets liana " + (msg[2] - '0') + " down on unity side");
           simonEngine.SetLianaState(msg[2] - '0', false);
         }
 
@@ -142,7 +142,7 @@ namespace Zos
       // Arduinos commands are executed when a ">" is received
       serialController.SendSerialMessage(">");
 
-      Debug.Log("Sending " + msg + ">");
+      Debug.Log("ArduinoWhisperer: Sending " + msg + "> to arduino");
     }
     #endregion
 

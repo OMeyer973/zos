@@ -20,8 +20,8 @@ namespace Zos
     private bool[] LianaStates = { false, false, false, false }; // current interaction state of the lianas
 
     [SerializeField]
-    private float MaxActionTime = 60;
-    private float ActionTime = 0;
+    private float MaxActionTime = 60; // in action scene : time before going back to idle scene (in s)
+    private float ActionTime = 0; // variable to count time in action scene
 
 
     // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
@@ -51,7 +51,7 @@ namespace Zos
     // Initialization
     void Start()
     {
-      Debug.Log("Initiating Simon Engine");
+      Debug.Log("SimonEngine: Initiating Simon Engine");
 
       arduinoWhisperer = GameObject.Find("ArduinoWhisperer").GetComponent<ArduinoWhisperer>();
       arduinoWhisperer.simonEngine = this;
@@ -68,7 +68,7 @@ namespace Zos
     // transition function called when going from Idle to Demo
     void SimonStart()
     {
-      Debug.Log("Starting Simon game");
+      Debug.Log("SimonEngine: Starting Simon game");
       CurrScene = Scene.Demo;
       ResetLianaStates(); // useless
       arduinoWhisperer.ChangeScene(Scene.Demo, Transition.SimonStart);
@@ -82,7 +82,7 @@ namespace Zos
     // transition function called when going from Demo to Action
     void GoToActionScene()
     {
-      Debug.Log("Simon demo ended, now it's your turn");
+      Debug.Log("SimonEngine: Simon demo ended, now it's your turn");
 
       CurrScene = Scene.Action;
       ResetLianaStates(); // useless
@@ -98,7 +98,7 @@ namespace Zos
     // transition function called when going from Action to demo (small victory)
     void PlayNextSimonSequence()
     {
-      Debug.Log("Simon game complete, Starting next simon demo (small victory)");
+      Debug.Log("SimonEngine: Simon game complete, Starting next simon demo (small victory)");
 
       CurrScene = Scene.Demo;
       ResetLianaStates(); // useless
@@ -116,7 +116,7 @@ namespace Zos
     // transition function called when going from Action to Idle (Simon failed)
     void FailSimon()
     {
-      Debug.Log("Simon game failed");
+      Debug.Log("SimonEngine: Simon game failed");
 
       CurrScene = Scene.Idle;
       ResetLianaStates();
@@ -131,7 +131,7 @@ namespace Zos
     // transition function called when going from Action to Idle (Simon passed)
     void WinSimon()
     {
-      Debug.Log("Simon game won ! (big victory)");
+      Debug.Log("SimonEngine: Simon game won ! (big victory)");
 
       CurrScene = Scene.Idle;
       ResetLianaStates();
@@ -188,9 +188,9 @@ namespace Zos
       Debug.Assert(CurrScene == Scene.Demo, "tried to play Demo out of Demo Scene !");
       if (CurrScene == Scene.Demo) // should be useless but We'll keep it as security
       {
-        //Print the time of when the function is first called.
-        Debug.Log("Started PlayDemo at timestamp : " + Time.time);
         Debug.Log(simonSequence);
+
+        yield return new WaitForSeconds(5);
 
         // for (int i = 0; i < simonSequence.SequenceSize(); i++)
         while (!simonSequence.IsFinished())
@@ -202,8 +202,6 @@ namespace Zos
         }
 
         GoToActionScene();
-        //After we have waited 5 seconds print the time again.
-        Debug.Log("Finished PlayDemo at timestamp : " + Time.time);
       }
     }
 
@@ -238,7 +236,7 @@ namespace Zos
       // if we wait more than allowed before doing an action : going back to Idle
       if (ActionTime > MaxActionTime)
       {
-        Debug.Log("Action time is up ! going back to Idle mode");
+        Debug.Log("SimonEngine: Action time is up ! going back to Idle mode");
         Start();
       }
     }

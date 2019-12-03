@@ -267,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arduinoWhisperer: {fileID: 748090406}
   soundEngine: {fileID: 1401457179}
-  MaxActionTime: 10
+  MaxActionTime: 60
 --- !u!1 &1401457178
 GameObject:
   m_ObjectHideFlags: 0
