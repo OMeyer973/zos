@@ -190,7 +190,7 @@ namespace Zos
       {
         Debug.Log(simonSequence);
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(8);
 
         // for (int i = 0; i < simonSequence.SequenceSize(); i++)
         while (!simonSequence.IsFinished())
@@ -198,7 +198,8 @@ namespace Zos
           arduinoWhisperer.TriggerLiana(simonSequence.GetCurrentLiana());
           simonSequence.NextLiana();
           //yield on a new YieldInstruction that waits for 5 seconds.
-          yield return new WaitForSeconds(3);
+          if (!simonSequence.IsFinished())
+            yield return new WaitForSeconds(3);
         }
 
         GoToActionScene();

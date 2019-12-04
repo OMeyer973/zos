@@ -43,7 +43,11 @@ class IdleScene {
         }
       }
       lianaBack[i] = lianaFront[i] - 1;
-    }
+      
+      // updating mask for animations
+      lianaMin[i] = lianaBack[i];
+      lianaMax[i] = stripLen;
+    }    
   }
 };
 
