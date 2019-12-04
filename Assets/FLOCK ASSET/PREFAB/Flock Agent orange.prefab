@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4231127697916612694}
   - component: {fileID: 4231127697916612681}
   - component: {fileID: -2479450771878283747}
-  - component: {fileID: 50951762726155742}
+  - component: {fileID: 50731274838386308}
   m_Layer: 0
   m_Name: Flock Agent orange
   m_TagString: flock orange
@@ -76,9 +76,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TagToEat: flock blue
-  atk: 10
+  atk: 3.89
   health: 100
---- !u!50 &50951762726155742
+--- !u!50 &50731274838386308
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -90,10 +90,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

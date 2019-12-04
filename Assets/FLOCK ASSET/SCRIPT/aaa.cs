@@ -42,6 +42,13 @@ public class aaa : MonoBehaviour
         // spawn food
 
 
+
         Destroy(this.gameObject);
     }
 }
+
+
+
+
+
+    
