@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 148927608}
   - component: {fileID: 148927610}
   - component: {fileID: 148927609}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: obstacle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148927607}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.081999, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 6}
   m_Children: []
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 274619544}
   - component: {fileID: 274619543}
   - component: {fileID: 274619542}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 343993716}
   - component: {fileID: 343993718}
   - component: {fileID: 343993717}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: obstacle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343993715}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.9686651, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 6}
   m_Children: []
@@ -410,7 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 354351398}
   - component: {fileID: 354351397}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Flock orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 686652868}
   - component: {fileID: 686652870}
   - component: {fileID: 686652869}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: obstacle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +476,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686652867}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.8686657, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 6}
   m_Children: []
@@ -609,13 +609,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +760,7 @@ GameObject:
   - component: {fileID: 1679998882}
   - component: {fileID: 1679998884}
   - component: {fileID: 1679998883}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: obstacle (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -774,7 +774,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679998881}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.191335, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 6}
   m_Children: []
@@ -907,7 +907,7 @@ GameObject:
   - component: {fileID: 1992558582}
   - component: {fileID: 1992558584}
   - component: {fileID: 1992558583}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: obstacle (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -921,7 +921,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992558581}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.52467, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 6}
   m_Children: []
