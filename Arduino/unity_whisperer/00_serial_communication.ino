@@ -52,6 +52,15 @@ class SerialCommunication
     }
     return '>'; // needs to be checked or discarded by calling method !
   }
+
+  // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+  // returns the transition character from this command string
+  char getTransition(String str) {
+    if(str.length() > 2) {
+      return str[2]; 
+    }
+    return '>'; // needs to be checked or discarded by calling method !
+  }
   
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
   // returns the liana id from this command string

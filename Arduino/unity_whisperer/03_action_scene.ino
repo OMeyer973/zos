@@ -61,9 +61,7 @@ class ActionScene
   
         // is true for one frame when the liana has been filled entirely
         if (lianaFront[i] <= 0) {
-          // todo : send trigger message to unity
-          Serial.print(">L");
-          Serial.println(i);
+          SendLianaTriggerToUnity(i);
           lianaFilling[i] = false;
           lianaBack[i] = stripLen;
           return;
@@ -80,7 +78,7 @@ class ActionScene
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
   // 2nd part of the liana update
   void eraseLiana(int i) {
-    if (lianaBack[i] >= 0){
+    if (lianaBack[i] > 0){
       lianaBack[i]--;
       return;
     } //else
@@ -88,7 +86,14 @@ class ActionScene
     if (sensorStates[i] == false) {
       initLiana(i);
     }
-  }    
+  }
+  
+  // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+  // notify unity of new state of liana
+  void SendLianaTriggerToUnity(int liana) {
+    Serial.print(">L");
+    Serial.println(liana);
+  }
 };
 
 //and declaring the variable which will be used in main

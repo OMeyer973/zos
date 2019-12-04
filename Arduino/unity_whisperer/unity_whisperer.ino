@@ -39,7 +39,7 @@ int colors[4][2][3] = { // colors for each strip in RGB
   }
 };
 
-uint32_t deltaTime = 16L; // minimum time between 2 loops (in ms) 16ms->60fps
+uint32_t deltaTime = 1L; // minimum time between 2 loops (in ms) 16ms->60fps
 // -> directly linked to the speed of the animations
 
 // LOGIC VARS

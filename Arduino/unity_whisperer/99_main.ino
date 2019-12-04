@@ -23,8 +23,6 @@ void loop() {
     case 'I': // idle scene
       GetSensorInput();
       idleScene.updateLianas();
-      // todo
-      // idleScenesendSensorInput(); 
       break;
     case 'D': // demo scene
       demoScene.beginLianaAnimationOnCommand(serialMsg);
@@ -50,8 +48,7 @@ void changeSceneOnCommand(String str) {
     currScene = serialCommunication.getScene(str);
     Serial.print("changing scene for ");
     Serial.println(currScene);
-    // todo : transition part ?
-    // todo : init next scene
+    // todo : transition
     initScene(currScene);
   }
 }
@@ -67,8 +64,8 @@ void initScene(char scene) {
       idleScene.init();
       break;
     case 'A':
-      // todo
-      actionScene.init(); 
+      actionScene.init();
+      // todo : auto go back to idle after some time ?
       break;
     case 'D':
       demoScene.init();
