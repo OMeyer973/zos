@@ -25,15 +25,17 @@ void loop() {
     case 'I': // idle scene
       GetSensorInput();
       idleScene.updateLianas();
-      animation.rainDownAnimation(.1);
+      animation.rainUpAnimation(.1);
       break;
     case 'D': // demo scene
       demoScene.beginLianaAnimationOnCommand(serialMsg);
       demoScene.updateLianas();
+      animation.rainDownAnimation(.1);
       break;
     case 'A': // action scene
       GetSensorInput();
       actionScene.updateLianas();
+      animation.rainUpAnimation(.1);
       break;
     default: break;
   }
@@ -66,7 +68,7 @@ void changeSceneOnCommand(String str) {
 // initialise global values for a given scene
 void initScene(char scene) {
   for (int i=0; i<4; i++) {
-    pixels[i].clear();    
+    //pixels[i].clear();    
   }
   switch(scene) {
     case 'I':
