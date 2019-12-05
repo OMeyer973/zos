@@ -204,6 +204,8 @@ namespace Zos
           //yield on a new YieldInstruction that waits for 5 seconds.
           if (!simonSequence.IsFinished())
             yield return new WaitForSeconds(3);
+          else
+            yield return new WaitForSeconds(3);
         }
 
         GoToActionScene();

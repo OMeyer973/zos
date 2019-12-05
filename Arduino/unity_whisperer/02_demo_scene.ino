@@ -49,7 +49,7 @@ class DemoScene {
       }
       
     // updating mask for animations
-    lianaMin[i] = lianaBack[i];
+    lianaMin[i] = -1;
     lianaMax[i] = lianaFront[i];
     }
   }
