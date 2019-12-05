@@ -31,6 +31,8 @@ namespace Zos
       Debug.Assert(0 <= i && i < 4, "SetLianaState called with invalid id");
       Debug.Log("SimonEngine: Setting Liana " + i + " " + state);
       LianaStates[i] = state;
+      if (state)
+        soundEngine.PlayLianaSound(i);
     }
 
     // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
@@ -156,6 +158,7 @@ namespace Zos
     {
       Debug.Assert(CurrScene == Scene.Action, "tried to triggerLiana in a scene != Action scene");
       Debug.Assert(0 <= triggeredLiana && triggeredLiana < 4, "SetLianaState called with invalid id");
+      soundEngine.PlayLianaSound(triggeredLiana);
 
       if (CurrScene == Scene.Action) // should be useless but We'll keep it as security
       {
@@ -196,6 +199,7 @@ namespace Zos
         while (!simonSequence.IsFinished())
         {
           arduinoWhisperer.TriggerLiana(simonSequence.GetCurrentLiana());
+          soundEngine.PlayLianaSound(simonSequence.GetCurrentLiana());
           simonSequence.NextLiana();
           //yield on a new YieldInstruction that waits for 5 seconds.
           if (!simonSequence.IsFinished())

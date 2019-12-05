@@ -47,6 +47,9 @@ namespace Zos
       for (int i = 0; i < size; i++)
       {
         Sequence.Add((int)Random.Range(0, 4));
+        // prevent 2 following lianas from being the same
+        while (i > 0 && Sequence[i] == Sequence[i - 1])
+          Sequence[i] = (int)Random.Range(0, 4);
       }
     }
 

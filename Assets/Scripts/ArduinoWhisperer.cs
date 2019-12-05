@@ -41,8 +41,6 @@ namespace Zos
     public void ChangeScene(Scene scene, Transition transition)
     {
       SendToArduino("" + (char)Command.ChangeScene + (char)scene + (char)transition);
-      // todo : add transition command
-      //SendToArduino("" + (char)Command.ChangeScene + (char)scene + (char)transition);
     }
 
     // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
