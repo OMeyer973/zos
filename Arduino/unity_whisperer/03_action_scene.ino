@@ -73,6 +73,10 @@ class ActionScene
       }
     }
     lianaBack[i] = lianaFront[i] - 1;
+
+    // updating mask for animations
+    lianaMin[i] = lianaBack[i];
+    lianaMax[i] = stripLen;
   }
   
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
@@ -86,6 +90,10 @@ class ActionScene
     if (sensorStates[i] == false) {
       initLiana(i);
     }
+
+    // updating mask for animations
+    lianaMin[i] = -1;
+    lianaMax[i] = lianaBack[i];
   }
   
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  

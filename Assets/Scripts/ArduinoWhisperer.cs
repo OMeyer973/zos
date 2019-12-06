@@ -40,9 +40,7 @@ namespace Zos
     // sends a 'change scene with a given transition' command to the arduino board
     public void ChangeScene(Scene scene, Transition transition)
     {
-      SendToArduino("" + (char)Command.ChangeScene + (char)scene);
-      // todo : add transition command
-      //SendToArduino("" + (char)Command.ChangeScene + (char)scene + (char)transition);
+      SendToArduino("" + (char)Command.ChangeScene + (char)scene + (char)transition);
     }
 
     // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 

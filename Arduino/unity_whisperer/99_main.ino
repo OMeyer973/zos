@@ -14,7 +14,9 @@ void setup() {
 
 // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 void loop() {
-  uint32_t loopStartTime = millis();  
+  uint32_t loopStartTime = millis();
+
+  //animation.playTransition('S');
   
   String serialMsg = serialCommunication.getSerialMessage();
   changeSceneOnCommand(serialMsg);
@@ -23,21 +25,27 @@ void loop() {
     case 'I': // idle scene
       GetSensorInput();
       idleScene.updateLianas();
+      animation.rainUpAnimation(.1);
       break;
     case 'D': // demo scene
       demoScene.beginLianaAnimationOnCommand(serialMsg);
       demoScene.updateLianas();
+      animation.rainDownAnimation(.1);
       break;
     case 'A': // action scene
       GetSensorInput();
       actionScene.updateLianas();
+      animation.rainUpAnimation(.1);
       break;
     default: break;
   }
+  
   drawLianas();
   while((millis()-loopStartTime) < deltaTime){
     //wait
   }
+  
+  frame ++;
 }
 
 // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
@@ -46,9 +54,12 @@ void loop() {
 void changeSceneOnCommand(String str) {
   if(serialCommunication.getCommand(str) == 'S') {
     currScene = serialCommunication.getScene(str);
+    char transition = serialCommunication.getTransition(str);
     Serial.print("changing scene for ");
-    Serial.println(currScene);
-    // todo : transition
+    Serial.print(currScene);
+    Serial.print("with transition ");
+    Serial.println(transition);
+    animation.playTransition(transition);
     initScene(currScene);
   }
 }
@@ -57,7 +68,7 @@ void changeSceneOnCommand(String str) {
 // initialise global values for a given scene
 void initScene(char scene) {
   for (int i=0; i<4; i++) {
-    pixels[i].clear();    
+    //pixels[i].clear();    
   }
   switch(scene) {
     case 'I':
@@ -83,7 +94,7 @@ void GetSensorInput() {
   int sensorValue =0;
   for (int i=0; i<4; i++) {
     sensorValue = analogRead(sensorPins[i]);
-    bool newSensorState = sensorValue < 128;
+    bool newSensorState = sensorValue < sensorThreshold;
 
     // on sensor state change
     if (newSensorState != sensorStates[i]) {
@@ -133,15 +144,11 @@ int getLEDB(int liana, int id) {
 // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 // returns the R, G or B component for the color of a given LED in a given Liana
 int getLEDComponent(int liana, int id, int component) {
-  return (int)lerp(
-    colors[liana][0][component],
-    colors[liana][1][component],
-    (float)id / (float)stripLen
-  );  
-}
-
-// -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
-// linear interpolation
-float lerp(float v0, float v1, float t) {
-  return (1 - t) * v0 + t * v1;
+  return gamma8[
+    (int)lerp(
+      colors[liana][0][component],
+      colors[liana][1][component],
+      (float)id / (float)stripLen
+    )
+  ];  
 }
