@@ -416,7 +416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &354351397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,7 +880,7 @@ GameObject:
   - component: {fileID: 1286152458}
   - component: {fileID: 1286152457}
   m_Layer: 0
-  m_Name: fooood
+  m_Name: Gestionnairecosysteme
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -901,6 +901,7 @@ MonoBehaviour:
   foodrigid: {fileID: 7629266589419095708, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
     type: 3}
   origine: {fileID: 818053402302337399, guid: fb92e69bcfbef3d4a90f7052063f1a6f, type: 3}
+  NombreDeBouff: 0
 --- !u!4 &1286152458
 Transform:
   m_ObjectHideFlags: 0

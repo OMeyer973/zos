@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class aaa : MonoBehaviour
 {
+    public string flockName;
 
     public FlockAgent agentPrefab;
     public string TagToEat;
@@ -12,7 +13,7 @@ public class aaa : MonoBehaviour
     public float regain;
    
     [Range(1f, 100f)]
-    public float delaisreprod = 50;
+    public float delaisreprod;
 
 
     //Detect collisions between the GameObjects with Colliders attached
@@ -25,7 +26,7 @@ public class aaa : MonoBehaviour
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
             other.gameObject.GetComponent<aaa>().hurt(atk, other);
-            other.gameObject.GetComponent<aaa>().eat();
+            GetComponent<aaa>().eat();
         }
 
         
@@ -41,10 +42,12 @@ public class aaa : MonoBehaviour
 
     public void hurt(float dmg, Collider2D other)
     {
-        float speed = this.gameObject.GetComponent<Flock>.maxSpeed;
+        //float speed = this.gameObject.GetComponent<Flock>.maxSpeed;
+
+      //float speed =  this.gameObject.GetComponentInParent<Flock>.maxSpeed;
 
          health -= dmg;
-        gameObject.GetComponent<Flock>
+       // gameObject.GetComponent<Flock>
         if ( health  <= 0)
         {
             die(other);
@@ -55,34 +58,40 @@ public class aaa : MonoBehaviour
     {
         // spawn food
 
-        other.gameObject.GetComponent<aaa>().health += regain;
-        other.gameObject.GetComponent<aaa>().delaisreprod += regain ;
+       // other.gameObject.GetComponent<aaa>().health += regain;
+        //other.gameObject.GetComponent<aaa>().delaisreprod += regain ;
 
         Destroy(this.gameObject);
+    }
+
+    private void Update()
+    {
+       // eat();
     }
 
     public void eat()
     {
 
-        Debug.Log(" ça mange");
+        Debug.Log("eat ");
         health += regain;
        delaisreprod += regain;
 
-        if( delaisreprod > 99)
+        Debug.Log("delaisreprod " + delaisreprod);
+
+        if ( delaisreprod > 99f)
         {
             
             Debug.Log(" ça reprod");
 
             FlockAgent newAgent = Instantiate(
               agentPrefab,
-              Random.insideUnitCircle * 1 * 1,
+              transform.position,
 
-              Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f)),
-
-              transform
-
-              );
-            //delaisreprod = 50;
+              Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f))
+            );
+            delaisreprod = 50;
+            Flock flock = GameObject.Find(flockName).GetComponent<Flock>();
+            flock.addAgent(newAgent);
             //Instantiate(this.gameObject);
 
         }

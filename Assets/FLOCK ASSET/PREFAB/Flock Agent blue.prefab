@@ -75,12 +75,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77a78ae99d41ee47b56a972eea4c849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flockName: Flock blue
   agentPrefab: {fileID: 4231127697916612681}
   TagToEat: food
   atk: 5
   health: 100
   regain: 60
-  delaisreprod: 100
+  delaisreprod: 44.7
 --- !u!50 &355398069097035264
 Rigidbody2D:
   serializedVersion: 4

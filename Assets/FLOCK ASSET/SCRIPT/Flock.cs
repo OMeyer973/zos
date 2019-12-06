@@ -64,7 +64,10 @@ public class Flock : MonoBehaviour
 
     }
 
-
+    public void addAgent(FlockAgent agent) 
+    {
+        agents.Add(agent);
+    }
 
 
    
