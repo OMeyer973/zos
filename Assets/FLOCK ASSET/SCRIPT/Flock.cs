@@ -12,7 +12,7 @@ public class Flock : MonoBehaviour
 
     [Range(5, 500)]
     public int startingCount = 250;
-    const float AgentDensity = 0.08f;
+    public float AgentDensity = 0.08f;
 
     [Range(1f, 100f)]
     public float drivefactor = 10;
@@ -47,12 +47,12 @@ public class Flock : MonoBehaviour
             FlockAgent newAgent = Instantiate(
                 agentPrefab,
                 Random.insideUnitCircle * startingCount * AgentDensity,
-
+                
                 Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f)),
 
                 transform
 
-                );
+                ) ;
             newAgent.name = "Agent" + i;
 
            

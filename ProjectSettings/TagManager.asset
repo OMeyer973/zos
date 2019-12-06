@@ -6,6 +6,8 @@ TagManager:
   tags:
   - flock orange
   - flock blue
+  - food
+  - tagnull
   layers:
   - Default
   - TransparentFX
