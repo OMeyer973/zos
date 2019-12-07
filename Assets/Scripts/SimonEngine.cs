@@ -93,7 +93,6 @@ namespace Zos
       soundEngine.PlayTransitionSound(Transition.BeginAction);
 
       ResetActionTime();
-      // todo : goto action scene
     }
 
     // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
@@ -126,7 +125,6 @@ namespace Zos
       soundEngine.PlayTransitionSound(Transition.Fail);
 
       // todo : hurt ecosystem
-      // todo : go to idle ?
     }
 
     // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
@@ -144,8 +142,6 @@ namespace Zos
       // todo : drop food in ecosystem
       // todo : heal ecosystem
       // todo : boost ecosystem
-
-      // todo : goto idle
     }
 
     //---------------------------------------------------------------------
