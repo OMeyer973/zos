@@ -75,11 +75,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77a78ae99d41ee47b56a972eea4c849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flockName: Flock orange
   agentPrefab: {fileID: 4231127697916612681}
   TagToEat: flock blue
-  atk: 10
-  health: 1000
-  regain: 0
+  atk: 10000
+  health: 100
+  regain: 50
   delaisreprod: 50
 --- !u!50 &50731274838386308
 Rigidbody2D:

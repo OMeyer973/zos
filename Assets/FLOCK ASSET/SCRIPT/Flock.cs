@@ -24,6 +24,8 @@ public class Flock : MonoBehaviour
     [Range(0f, 1f)]
     public float avoidanceRadiusMultiplier = 0.5f;
 
+    public float DommageFlock;
+
    
 
 
@@ -113,6 +115,18 @@ public class Flock : MonoBehaviour
             }
         }
         return context;
+    }
+
+    public void HurtAll()
+
+    {
+
+       foreach (FlockAgent agent in agents)
+        {
+            agent.gameObject.GetComponent<aaa>().Hurt(DommageFlock);
+
+        }
+        
     }
 }
 

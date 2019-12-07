@@ -78,10 +78,10 @@ MonoBehaviour:
   flockName: Flock blue
   agentPrefab: {fileID: 4231127697916612681}
   TagToEat: food
-  atk: 5
+  atk: 15
   health: 100
   regain: 60
-  delaisreprod: 44.7
+  delaisreprod: 1
 --- !u!50 &355398069097035264
 Rigidbody2D:
   serializedVersion: 4

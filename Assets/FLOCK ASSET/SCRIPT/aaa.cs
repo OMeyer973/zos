@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class aaa : MonoBehaviour
 {
+
+    //nom du tableau de flock
     public string flockName;
 
+
+    //flock qui spawn
     public FlockAgent agentPrefab;
+    //
+    public Rigidbody2D foodSpawn;
+
     public string TagToEat;
     public float atk;
     public float health;
@@ -25,7 +32,7 @@ public class aaa : MonoBehaviour
         if (other.gameObject.CompareTag(TagToEat))
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
-            other.gameObject.GetComponent<aaa>().hurt(atk, other);
+            other.gameObject.GetComponent<aaa>().Attaque(atk, other);
             GetComponent<aaa>().eat();
         }
 
@@ -40,25 +47,25 @@ public class aaa : MonoBehaviour
         // Debug.Log("TestaaaaTest");
     }
 
-    public void hurt(float dmg, Collider2D other)
+    public void Attaque(float dmg, Collider2D other)
     {
         //float speed = this.gameObject.GetComponent<Flock>.maxSpeed;
 
-      //float speed =  this.gameObject.GetComponentInParent<Flock>.maxSpeed;
+        //float speed =  this.gameObject.GetComponentInParent<Flock>.maxSpeed;
 
-         health -= dmg;
-       // gameObject.GetComponent<Flock>
-        if ( health  <= 0)
-        {
-            die(other);
+        other.gameObject.GetComponent<aaa>().Hurt(dmg);
 
-        }
+
+       
     }
-    public void die(Collider2D other)
+    public void die()
     {
         // spawn food
+        Rigidbody2D instance;
 
-       // other.gameObject.GetComponent<aaa>().health += regain;
+        instance = Instantiate(foodrigid, this.transform.position ) as Rigidbody2D;
+
+        // other.gameObject.GetComponent<aaa>().health += regain;
         //other.gameObject.GetComponent<aaa>().delaisreprod += regain ;
 
         Destroy(this.gameObject);
@@ -76,12 +83,12 @@ public class aaa : MonoBehaviour
         health += regain;
        delaisreprod += regain;
 
-        Debug.Log("delaisreprod " + delaisreprod);
 
-        if ( delaisreprod > 99f)
+        if ( delaisreprod >= 100f)
         {
             
             Debug.Log(" ça reprod");
+            delaisreprod = 1f;
 
             FlockAgent newAgent = Instantiate(
               agentPrefab,
@@ -89,15 +96,31 @@ public class aaa : MonoBehaviour
 
               Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f))
             );
-            delaisreprod = 50;
             Flock flock = GameObject.Find(flockName).GetComponent<Flock>();
             flock.addAgent(newAgent);
-            //Instantiate(this.gameObject);
+
+            Debug.Log("delaisreprod post spawn " + delaisreprod);
+
 
         }
 
 
     }
+
+   public void Hurt (float dmg)
+    {
+        health -= dmg;
+        // gameObject.GetComponent<Flock>
+        if (health <= 0)
+        {
+            die();
+
+        }
+
+    }
+   
+
+
 }
 
 
