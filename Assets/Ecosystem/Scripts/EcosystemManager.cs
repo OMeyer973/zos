@@ -4,35 +4,20 @@ using UnityEngine;
 
 public class EcosystemManager : MonoBehaviour
 {
-
     public float EcosystemRadius = 10f;
 
+    public List<GameObject> species;
 
-    public List<Specie> species;
-
+    public int FoodToSpawnPerBatch = 10;
     public GameObject foodPrefab;
-    public int AmountOfFoodToSpawn = 10;
-
-    public List<GameObject> flockObjects;
-    public List<GameObject> AgentsObjects;
-    public string TagAgents;
-
-    float speedBoostValue = 2f;
-
-    public float timer = 0.0f;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        foreach (Transform child in GameObject.Find(flockListName).transform)
-        flockObjects.Add(child.gameObject);
-        */
-        // AgentsObjects.Add(gameObject.CompareTag(TagAgents));
-
     }
 
+    // drop one food bit in the ecosystem
     public void DropFood()
     {
         Debug.Log("dropping food");
@@ -41,65 +26,48 @@ public class EcosystemManager : MonoBehaviour
         Instantiate(foodPrefab, spawnPosition, Quaternion.Euler(spawnPosition));
     }
 
-    // Update is called once per frame
+    // drop a batch of food in the ecosystem
+    IEnumerator DropFoodBatch()
+    {
+        for (int i=0; i<FoodToSpawnPerBatch; i++)
+        {
+            DropFood();
+            yield return new WaitForSeconds(Time.deltaTime*.3f);
+        }
+    }
+
     void Update()
     {
         //food
         if (Input.GetButtonDown("Fire1"))
         {
-            for (int i = 0; i < AmountOfFoodToSpawn; i++)
-            {
-                DropFood();
-            }
-
-
+            StartCoroutine(DropFoodBatch());
         }
          //hurt
         if (Input.GetButtonDown("Fire2"))
         {
             HurtEcosystem();
-            foreach (GameObject flockObject in flockObjects)
+            foreach (GameObject specieObject in species)
             {
-                flockObject.GetComponent<Specie>().HurtAll();
+                specieObject.GetComponent<Specie>().HurtAll();
             }
-
-
-
         }
-
-
-
     }
     //dropfood
     //boost
     //hurt
 
+    // hurt and freak out all the specimen in the ecosystem
     public void HurtEcosystem()
     {
-        foreach(Specie specie in species)
+        foreach(GameObject specieObject in species)
         {
+            Specie specie = specieObject.GetComponent<Specie>();
             specie.HurtSpecimens();
         }
     }
 
-    /*
-    IEnumerator Hurt ()
-    {
-        foreach (GameObject flockObject in flockObjects)
-        {
-            flockObject.GetComponent<Flock>().maxSpeed *= speedBoostValue;
-        }
-
-        yield return new WaitForSeconds(timer);
-
-        foreach (GameObject flockObject in flockObjects)
-        {
-            flockObject.GetComponent<Flock>().maxSpeed /= speedBoostValue;
-        }
-    }
-    */
     //heal
     //addspecies
-
 
 }

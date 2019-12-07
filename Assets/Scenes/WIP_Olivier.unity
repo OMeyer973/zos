@@ -438,8 +438,12 @@ MonoBehaviour:
   maxSpeed: 5
   neigbourgRadius: 1.5
   avoidanceRadiusMultiplier: 0.5
-  HurtDamage: 0
-  HurtSpeedMultiplier: 0
+  HurtDamage: 30
+  freakOutTime: 5
+  freakOutBehaviorsParam: []
+  freakOutMaxSpeed: 0
+  freakOutNeighborRadius: 0
+  freakOutAvoidanceRadius: 0
 --- !u!4 &354351398
 Transform:
   m_ObjectHideFlags: 0
@@ -447,12 +451,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354351396}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7171438, y: 9.510137, z: -0.5727844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1286152458}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &686652867
 GameObject:
@@ -653,7 +657,7 @@ Transform:
   - {fileID: 1992558582}
   - {fileID: 274619544}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -737,57 +741,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1266612602
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1266612604}
-  - component: {fileID: 1266612603}
-  m_Layer: 0
-  m_Name: Flock
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1266612603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266612602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2120e9f827243d048adbf38f08ac8fef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 0}
-  behaviorTemplate: {fileID: 0}
-  startingCount: 10
-  AgentDensity: 0.08
-  drivefactor: 10
-  maxSpeed: 1
-  neigbourgRadius: 10
-  avoidanceRadiusMultiplier: 0.5
---- !u!4 &1266612604
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266612602}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1286152456
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,14 +771,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EcosystemRadius: 100
-  species: []
+  species:
+  - {fileID: 1733043844}
+  - {fileID: 354351396}
+  FoodToSpawnPerBatch: 10
   foodPrefab: {fileID: 6797103024265313508, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
     type: 3}
-  AmountOfFoodToSpawn: 50
-  flockObjects: []
-  AgentsObjects: []
-  TagAgents: 
-  timer: 0
 --- !u!4 &1286152458
 Transform:
   m_ObjectHideFlags: 0
@@ -836,9 +787,12 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.7171438, y: -9.510137, z: 0.5727844}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1733043846}
+  - {fileID: 354351398}
+  - {fileID: 1343789548}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1343789547
 GameObject:
@@ -864,12 +818,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343789547}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.10827, y: 2.3203933, z: -15.014349}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -25.825415, y: 11.83053, z: -15.587133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1286152458}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1343789549
 MonoBehaviour:
@@ -883,7 +837,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd63ba59bd9848f46a18eef6442efc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 0}
+  agentPrefab: {fileID: 6797103024265313508, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
+    type: 3}
   behaviorTemplate: {fileID: 0}
   startingCount: 5
   AgentDensity: 0.08
@@ -892,7 +847,11 @@ MonoBehaviour:
   neigbourgRadius: 1
   avoidanceRadiusMultiplier: 0
   HurtDamage: 0
-  HurtSpeedMultiplier: 0
+  freakOutTime: 5
+  freakOutBehaviorsParam: []
+  freakOutMaxSpeed: 0
+  freakOutNeighborRadius: 0
+  freakOutAvoidanceRadius: 0
 --- !u!1 &1679998881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,10 +984,19 @@ MonoBehaviour:
   AgentDensity: 10
   drivefactor: 10
   maxSpeed: 5
-  neigbourgRadius: 1.5
+  neigbourgRadius: 1.6
   avoidanceRadiusMultiplier: 0.5
-  HurtDamage: 0
-  HurtSpeedMultiplier: 0
+  HurtDamage: 30
+  freakOutTime: 5
+  freakOutBehaviorsParam:
+  - 10
+  - 1
+  - 0
+  - 0
+  - 0
+  freakOutMaxSpeed: 40
+  freakOutNeighborRadius: 0
+  freakOutAvoidanceRadius: 0
 --- !u!4 &1733043846
 Transform:
   m_ObjectHideFlags: 0
@@ -1036,12 +1004,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733043844}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7171438, y: 9.510137, z: -0.5727844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1286152458}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1992558581
 GameObject:

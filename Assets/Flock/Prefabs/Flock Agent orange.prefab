@@ -79,11 +79,12 @@ MonoBehaviour:
   childPrefab: {fileID: 4231127697916612680}
   corpsePrefab: {fileID: 6797103024265313508, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
     type: 3}
+  health: 40
+  lifeTime: 60
+  foodToEatBeforeReproducing: 80
   SpecieToEat: flock blue
-  atk: 10000
-  health: 100
-  regain: 50
-  delaisreprod: 50
+  attackStrength: 60
+  nutritiousValue: 100
 --- !u!50 &50731274838386308
 Rigidbody2D:
   serializedVersion: 4

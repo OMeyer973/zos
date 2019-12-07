@@ -70,7 +70,10 @@ public class Flock : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
-    agents.RemoveAll(list_item => list_item == null);
+        // todo: remove
+        behavior = Object.Instantiate(behaviorTemplate);
+
+        agents.RemoveAll(list_item => list_item == null);
 
         foreach (GameObject agent in agents)
         {

@@ -97,11 +97,12 @@ MonoBehaviour:
   specieName: Food
   childPrefab: {fileID: 0}
   corpsePrefab: {fileID: 0}
-  SpecieToEat: tagnull
-  atk: 0
   health: 0
-  regain: 50
-  delaisreprod: 0
+  lifeSpan: 1e+22
+  foodToEatBeforeReproducing: 0
+  SpecieToEat: tagnull
+  attackStrength: 0
+  nutritiousValue: 50
 --- !u!58 &251945637979779656
 CircleCollider2D:
   m_ObjectHideFlags: 0
