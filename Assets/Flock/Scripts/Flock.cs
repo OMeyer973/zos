@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// This class controls the movement behavior of a flock 
+// !! only the movement !!
+
+// for prey / predator damage and reproduction behaviors,
+// see Specie and Specimen classes
+
 public class Flock : MonoBehaviour
 {
-
-    public FlockAgent agentPrefab;
-    List<FlockAgent> agents = new List<FlockAgent>();
+    [Header("Flock Settings")]
+    public GameObject agentPrefab;
     public CompositeBehavior behaviorTemplate;
-    CompositeBehavior behavior;
+    protected CompositeBehavior behavior;
 
-  [Range(5, 500)]
+    protected List<GameObject> agents = new List<GameObject>();
+
+    [Range(5, 500)]
     public int startingCount = 250;
     public float AgentDensity = 0.08f;
 
@@ -24,97 +32,63 @@ public class Flock : MonoBehaviour
     [Range(0f, 1f)]
     public float avoidanceRadiusMultiplier = 0.5f;
 
-    public float DommageFlock;
-
-   
-
-
     float squareMaxspeed;
     float squareNeighborRadius;
     float squareAvoidanceRadius;
 
     public float SquareAvoidanceRadius { get { return squareAvoidanceRadius; } }
 
-
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
-    behavior = Object.Instantiate(behaviorTemplate);
+        behavior = Object.Instantiate(behaviorTemplate);
     
         squareMaxspeed = maxSpeed * maxSpeed;
         squareNeighborRadius = neigbourgRadius * neigbourgRadius;
         squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
 
-
         for (int i = 0; i < startingCount; i++)
         {
-            FlockAgent newAgent = Instantiate(
+            GameObject newAgent = Instantiate(
                 agentPrefab,
                 Random.insideUnitCircle * startingCount * AgentDensity,
-                
                 Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f)),
-
                 transform
-
                 ) ;
             newAgent.name = "Agent" + i;
-
+            newAgent.GetComponent<FlockAgent>().Initialize(this);
            
-            newAgent.Initialize(this);
-           
-            // newAgent.Initialize(this);
             agents.Add(newAgent);
         }
-
     }
 
-    public void addAgent(FlockAgent agent) 
+    public void addAgent(GameObject agent) 
     {
-        agents.Add(agent);
+        agents.Add(agent.gameObject);
     }
-    
-    public void FreakOut()
-    {
-      Debug.Log("yipikaye motherfucker");
-      behavior.weights[2] = 500;
-    }
-
-  
-   
-
 
     // Update is called once per frame
-
-    void Update()
+    protected void Update()
     {
-
-    // Send scene changes to arduino
-    if (Input.GetKeyDown(KeyCode.G))
-    {
-      FreakOut();
-    }
-
-
-
     agents.RemoveAll(list_item => list_item == null);
 
-        foreach (FlockAgent agent in agents)
+        foreach (GameObject agent in agents)
         {
-
+            FlockAgent flockAgent = agent.GetComponent<FlockAgent>();
            /* OnCollisionEnter(Collision collision);*/  
 
-            List<Transform> context = GetNearbyObjects(agent);
+            List<Transform> context = GetNearbyObjects(flockAgent);
 
             // pour demo/debug 
            // agent.GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, context.Count / 6f);
 
-             Vector2 move = behavior.CalculateMove(agent, context, this);
+             Vector2 move = behavior.CalculateMove(flockAgent, context, this);
              move *= drivefactor;
              if (move.sqrMagnitude > squareMaxspeed)
              {
                  move = move.normalized * maxSpeed;
              }
-             agent.Move(move); 
+             flockAgent.Move(move); 
         }
     }
     List<Transform> GetNearbyObjects(FlockAgent agent)
@@ -130,18 +104,6 @@ public class Flock : MonoBehaviour
             }
         }
         return context;
-    }
-
-    public void HurtAll()
-
-    {
-
-       foreach (FlockAgent agent in agents)
-        {
-            agent.gameObject.GetComponent<Specimen>().Hurt(DommageFlock);
-
-        }
-        
     }
 }
 

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 818053402302337399}
   - component: {fileID: 5504915651296596202}
+  - component: {fileID: 114605059854929614}
   - component: {fileID: 251945637979779656}
   - component: {fileID: 7629266589419095708}
-  - component: {fileID: 114453246719990994}
   m_Layer: 0
   m_Name: food
   m_TagString: food
@@ -82,6 +82,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &114605059854929614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6797103024265313508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77a78ae99d41ee47b56a972eea4c849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specieName: Food
+  childPrefab: {fileID: 0}
+  corpsePrefab: {fileID: 0}
+  SpecieToEat: tagnull
+  atk: 0
+  health: 0
+  regain: 50
+  delaisreprod: 0
 --- !u!58 &251945637979779656
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -119,22 +139,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &114453246719990994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6797103024265313508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77a78ae99d41ee47b56a972eea4c849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 4231127697916612681, guid: 7eb24051065257849b578b2843316dc1,
-    type: 3}
-  TagToEat: tagnull
-  atk: 0
-  health: 1
-  regain: 50
-  delaisreprod: 1

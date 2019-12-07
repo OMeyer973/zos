@@ -2,20 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeciesManager : MonoBehaviour
+public class EcosystemManager : MonoBehaviour
 {
+
+    public float EcosystemRadius = 10f;
+
+
+    public List<Specie> species;
+
+    public GameObject foodPrefab;
+    public int AmountOfFoodToSpawn = 10;
+
+    public List<GameObject> flockObjects;
+    public List<GameObject> AgentsObjects;
+    public string TagAgents;
 
     float speedBoostValue = 2f;
 
     public float timer = 0.0f;
-    public string flockListName;
-    public Rigidbody2D foodrigid;
-    public Transform origine;
-    public float NombreDeBouff;
-   
-    public List<GameObject> flockObjects;
-    public List<GameObject> AgentsObjects;
-    public string TagAgents;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,34 +29,27 @@ public class SpeciesManager : MonoBehaviour
         foreach (Transform child in GameObject.Find(flockListName).transform)
         flockObjects.Add(child.gameObject);
         */
-       // AgentsObjects.Add(gameObject.CompareTag(TagAgents));
+        // AgentsObjects.Add(gameObject.CompareTag(TagAgents));
 
     }
 
-   
     public void DropFood()
     {
-
-        Rigidbody2D instance;
-        instance = Instantiate(foodrigid, transform.position = Random.insideUnitCircle * 20, origine.rotation) as Rigidbody2D;
-
-
+        Debug.Log("dropping food");
+        Vector3 spawnPosition = Random.insideUnitSphere * EcosystemRadius;
+        spawnPosition.z = 0;
+        Instantiate(foodPrefab, spawnPosition, Quaternion.Euler(spawnPosition));
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
         //food
         if (Input.GetButtonDown("Fire1"))
         {
-
-            for (int i = 0; i < NombreDeBouff; i++)
+            for (int i = 0; i < AmountOfFoodToSpawn; i++)
             {
-                Rigidbody2D instance;
-                instance = Instantiate(foodrigid, transform.position = Random.insideUnitCircle * 20, origine.rotation) as Rigidbody2D;
-
+                DropFood();
             }
 
 
@@ -59,14 +57,10 @@ public class SpeciesManager : MonoBehaviour
          //hurt
         if (Input.GetButtonDown("Fire2"))
         {
-
-
-            
-
-            StartCoroutine(Hurt());
+            HurtEcosystem();
             foreach (GameObject flockObject in flockObjects)
             {
-                flockObject.GetComponent<Flock>().HurtAll();
+                flockObject.GetComponent<Specie>().HurtAll();
             }
 
 
@@ -80,7 +74,15 @@ public class SpeciesManager : MonoBehaviour
     //boost
     //hurt
 
+    public void HurtEcosystem()
+    {
+        foreach(Specie specie in species)
+        {
+            specie.HurtSpecimens();
+        }
+    }
 
+    /*
     IEnumerator Hurt ()
     {
         foreach (GameObject flockObject in flockObjects)
@@ -95,6 +97,7 @@ public class SpeciesManager : MonoBehaviour
             flockObject.GetComponent<Flock>().maxSpeed /= speedBoostValue;
         }
     }
+    */
     //heal
     //addspecies
 

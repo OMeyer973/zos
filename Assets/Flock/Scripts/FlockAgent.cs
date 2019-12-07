@@ -27,14 +27,9 @@ public class FlockAgent : MonoBehaviour
     {
         //en 3d transform forward
 
-
        // transform.Translate(Vector3.forward * Time.deltaTime, Space.World);
-
 
         transform.up = velocity;
         transform.position += (Vector3)velocity * Time.deltaTime;
-
-
-
     }
 }

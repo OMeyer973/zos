@@ -426,19 +426,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 354351396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2120e9f827243d048adbf38f08ac8fef, type: 3}
+  m_Script: {fileID: 11500000, guid: cd63ba59bd9848f46a18eef6442efc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 4231127697916612681, guid: e92bac3c99206e1438ef58f0e169bc51,
+  agentPrefab: {fileID: 4231127697916612680, guid: e92bac3c99206e1438ef58f0e169bc51,
     type: 3}
   behaviorTemplate: {fileID: 11400000, guid: f5d578c0f02f4f945b7a8e7821e80452, type: 2}
   startingCount: 5
-  AgentDensity: 10
+  AgentDensity: 1
   drivefactor: 10
   maxSpeed: 5
-  neigbourgRadius: 5
+  neigbourgRadius: 1.5
   avoidanceRadiusMultiplier: 0.5
-  DommageFlock: 0
+  HurtDamage: 0
+  HurtSpeedMultiplier: 0
 --- !u!4 &354351398
 Transform:
   m_ObjectHideFlags: 0
@@ -628,7 +629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 831033479}
   m_Layer: 9
-  m_Name: GameObject
+  m_Name: Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -736,89 +737,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1002132528
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1002132530}
-  - component: {fileID: 1002132529}
-  m_Layer: 9
-  m_Name: ock carotte
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1002132529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002132528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2120e9f827243d048adbf38f08ac8fef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 114823227555146572, guid: b85bf5261fbbebb4c8421515f9ce7cf3,
-    type: 3}
-  behaviorTemplate: {fileID: 0}
-  startingCount: 20
-  AgentDensity: 0.08
-  drivefactor: 10
-  maxSpeed: 5
-  neigbourgRadius: 5
-  avoidanceRadiusMultiplier: 0.5
-  DommageFlock: 0
---- !u!4 &1002132530
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002132528}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1167255079
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1167255080}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1167255080
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1167255079}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7171438, y: -9.510137, z: 0.5727844}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1266612602
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,8 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2120e9f827243d048adbf38f08ac8fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 4231127697916612681, guid: 7eb24051065257849b578b2843316dc1,
-    type: 3}
+  agentPrefab: {fileID: 0}
   behaviorTemplate: {fileID: 0}
   startingCount: 10
   AgentDensity: 0.08
@@ -857,7 +774,6 @@ MonoBehaviour:
   maxSpeed: 1
   neigbourgRadius: 10
   avoidanceRadiusMultiplier: 0.5
-  DommageFlock: 0
 --- !u!4 &1266612604
 Transform:
   m_ObjectHideFlags: 0
@@ -883,7 +799,7 @@ GameObject:
   - component: {fileID: 1286152458}
   - component: {fileID: 1286152457}
   m_Layer: 0
-  m_Name: Gestionnairecosysteme
+  m_Name: EcosystemManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -901,15 +817,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a19074241f9f60f47bf74839cc999b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
-  flockListName: 
-  foodrigid: {fileID: 7629266589419095708, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
+  EcosystemRadius: 100
+  species: []
+  foodPrefab: {fileID: 6797103024265313508, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
     type: 3}
-  origine: {fileID: 818053402302337399, guid: fb92e69bcfbef3d4a90f7052063f1a6f, type: 3}
-  NombreDeBouff: 0
+  AmountOfFoodToSpawn: 50
   flockObjects: []
   AgentsObjects: []
   TagAgents: 
+  timer: 0
 --- !u!4 &1286152458
 Transform:
   m_ObjectHideFlags: 0
@@ -922,9 +838,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1350421507
+--- !u!1 &1343789547
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -932,51 +848,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1350421509}
-  - component: {fileID: 1350421508}
-  m_Layer: 9
-  m_Name: ock carotte (1)
+  - component: {fileID: 1343789548}
+  - component: {fileID: 1343789549}
+  m_Layer: 0
+  m_Name: Food
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1350421508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350421507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2120e9f827243d048adbf38f08ac8fef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 114211391056758752, guid: 587498ea410005a45acc6d3c8ca885dd,
-    type: 3}
-  behaviorTemplate: {fileID: 0}
-  startingCount: 20
-  AgentDensity: 0.08
-  drivefactor: 10
-  maxSpeed: 5
-  neigbourgRadius: 5
-  avoidanceRadiusMultiplier: 0.5
-  DommageFlock: 0
---- !u!4 &1350421509
+  m_IsActive: 1
+--- !u!4 &1343789548
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350421507}
+  m_GameObject: {fileID: 1343789547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -25.10827, y: 2.3203933, z: -15.014349}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1343789549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343789547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd63ba59bd9848f46a18eef6442efc8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentPrefab: {fileID: 0}
+  behaviorTemplate: {fileID: 0}
+  startingCount: 5
+  AgentDensity: 0.08
+  drivefactor: 1
+  maxSpeed: 1
+  neigbourgRadius: 1
+  avoidanceRadiusMultiplier: 0
+  HurtDamage: 0
+  HurtSpeedMultiplier: 0
 --- !u!1 &1679998881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,19 +1015,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1733043844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2120e9f827243d048adbf38f08ac8fef, type: 3}
+  m_Script: {fileID: 11500000, guid: cd63ba59bd9848f46a18eef6442efc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 4231127697916612681, guid: 1f63caef9afce84488e8e27d348ebfdf,
+  agentPrefab: {fileID: 4231127697916612680, guid: 1f63caef9afce84488e8e27d348ebfdf,
     type: 3}
   behaviorTemplate: {fileID: 11400000, guid: 6b75b2beb21227f44b1dc5125a7671e2, type: 2}
-  startingCount: 40
-  AgentDensity: 1
+  startingCount: 10
+  AgentDensity: 10
   drivefactor: 10
   maxSpeed: 5
-  neigbourgRadius: 10
+  neigbourgRadius: 1.5
   avoidanceRadiusMultiplier: 0.5
-  DommageFlock: 0
+  HurtDamage: 0
+  HurtSpeedMultiplier: 0
 --- !u!4 &1733043846
 Transform:
   m_ObjectHideFlags: 0

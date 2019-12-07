@@ -6,15 +6,13 @@ public class Specimen : MonoBehaviour
 {
 
     //nom du tableau de flock
-    public string flockName;
+    public string specieName;
 
+    public GameObject childPrefab;
+    public GameObject corpsePrefab;
 
-    //flock qui spawn
-    public FlockAgent agentPrefab;
-    //
-    public Rigidbody2D foodSpawn;
-
-    public string TagToEat;
+    [Tooltip("tag of the specie to eat")]
+    public string SpecieToEat;
     public float atk;
     public float health;
     public float regain;
@@ -22,17 +20,16 @@ public class Specimen : MonoBehaviour
     [Range(1f, 100f)]
     public float delaisreprod;
 
+    Specie specie;
 
     //Detect collisions between the GameObjects with Colliders attached
     void OnTriggerEnter2D(Collider2D other)
     {
-       // Debug.Log("Trigger entered |||||||||||||||||||||||||||");
-
         //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (other.gameObject.CompareTag(TagToEat))
+        if (other.gameObject.CompareTag(SpecieToEat))
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
-            other.gameObject.GetComponent<Specimen>().Attaque(atk, other);
+            other.gameObject.GetComponent<Specimen>().Attack(atk, other);
             GetComponent<Specimen>().eat();
         }
 
@@ -47,11 +44,8 @@ public class Specimen : MonoBehaviour
         // Debug.Log("TestaaaaTest");
     }
 
-    public void Attaque(float dmg, Collider2D other)
+    public void Attack(float dmg, Collider2D other)
     {
-        //float speed = this.gameObject.GetComponent<Flock>.maxSpeed;
-
-        //float speed =  this.gameObject.GetComponentInParent<Flock>.maxSpeed;
 
         other.gameObject.GetComponent<Specimen>().Hurt(dmg);
 
@@ -60,18 +54,18 @@ public class Specimen : MonoBehaviour
     }
     public void die()
     {
-        // spawn food
-        Rigidbody2D instance;
-
-        //instance = Instantiate(foodrigid, this.transform.position ) as Rigidbody2D;
-
-        // other.gameObject.GetComponent<Specimen>().health += regain;
-        //other.gameObject.GetComponent<Specimen>().delaisreprod += regain ;
-
+        if (childPrefab != null)
+            Instantiate(childPrefab, this.transform);
         Destroy(this.gameObject);
     }
 
-    private void Update()
+    void Start()
+    {
+        specie = GameObject.Find(specieName).GetComponent<Specie>();
+        Debug.Log(specie);
+        if (specie == null) Debug.Log("ERR : failed to initiate specie");
+    }
+    void Update()
     {
        // eat();
     }
@@ -79,25 +73,26 @@ public class Specimen : MonoBehaviour
     public void eat()
     {
 
-        Debug.Log("eat ");
+        Debug.Log("eating");
         health += regain;
        delaisreprod += regain;
 
 
         if ( delaisreprod >= 100f)
         {
-            
-            Debug.Log(" ça reprod");
+            //Debug.Log("Specimen " + name + " has reproduced!");
             delaisreprod = 1f;
 
-            FlockAgent newAgent = Instantiate(
-              agentPrefab,
+            GameObject child = Instantiate(
+              childPrefab,
               transform.position,
-
-              Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f))
+              Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f)),
+              transform.parent
             );
-            Flock flock = GameObject.Find(flockName).GetComponent<Flock>();
-            flock.addAgent(newAgent);
+            child.name = name;
+            Debug.Log(specie);
+            if (specie == null) Debug.Log("ERR SPECIE NULL");
+            specie.addAgent(child);
 
             Debug.Log("delaisreprod post spawn " + delaisreprod);
 

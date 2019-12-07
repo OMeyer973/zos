@@ -75,9 +75,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77a78ae99d41ee47b56a972eea4c849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flockName: Flock blue
-  agentPrefab: {fileID: 4231127697916612681}
-  TagToEat: food
+  specieName: Flock blue
+  childPrefab: {fileID: 4231127697916612680}
+  corpsePrefab: {fileID: 6797103024265313508, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
+    type: 3}
+  SpecieToEat: food
   atk: 15
   health: 100
   regain: 60
