@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class aaa : MonoBehaviour
+public class Specimen : MonoBehaviour
 {
 
     //nom du tableau de flock
@@ -32,8 +32,8 @@ public class aaa : MonoBehaviour
         if (other.gameObject.CompareTag(TagToEat))
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
-            other.gameObject.GetComponent<aaa>().Attaque(atk, other);
-            GetComponent<aaa>().eat();
+            other.gameObject.GetComponent<Specimen>().Attaque(atk, other);
+            GetComponent<Specimen>().eat();
         }
 
         
@@ -53,7 +53,7 @@ public class aaa : MonoBehaviour
 
         //float speed =  this.gameObject.GetComponentInParent<Flock>.maxSpeed;
 
-        other.gameObject.GetComponent<aaa>().Hurt(dmg);
+        other.gameObject.GetComponent<Specimen>().Hurt(dmg);
 
 
        
@@ -63,10 +63,10 @@ public class aaa : MonoBehaviour
         // spawn food
         Rigidbody2D instance;
 
-        instance = Instantiate(foodrigid, this.transform.position ) as Rigidbody2D;
+        //instance = Instantiate(foodrigid, this.transform.position ) as Rigidbody2D;
 
-        // other.gameObject.GetComponent<aaa>().health += regain;
-        //other.gameObject.GetComponent<aaa>().delaisreprod += regain ;
+        // other.gameObject.GetComponent<Specimen>().health += regain;
+        //other.gameObject.GetComponent<Specimen>().delaisreprod += regain ;
 
         Destroy(this.gameObject);
     }

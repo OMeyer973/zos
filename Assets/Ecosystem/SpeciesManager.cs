@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GestionEco : MonoBehaviour
+public class SpeciesManager : MonoBehaviour
 {
 
     float speedBoostValue = 2f;
@@ -20,9 +20,10 @@ public class GestionEco : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         foreach (Transform child in GameObject.Find(flockListName).transform)
         flockObjects.Add(child.gameObject);
-
+        */
        // AgentsObjects.Add(gameObject.CompareTag(TagAgents));
 
     }

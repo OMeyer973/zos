@@ -1663,6 +1663,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "B\xCATE_1_FBX"
       objectReference: {fileID: 0}
+    - target: {fileID: 1861837377307388947, guid: 2c0f467ccb3753340aed12c53d58d1a0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1861837377307422771, guid: 2c0f467ccb3753340aed12c53d58d1a0,
         type: 3}
       propertyPath: m_LocalPosition.x

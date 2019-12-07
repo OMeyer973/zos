@@ -7,10 +7,10 @@ public class Flock : MonoBehaviour
 
     public FlockAgent agentPrefab;
     List<FlockAgent> agents = new List<FlockAgent>();
-    public FlockBehavior behavior;
+    public CompositeBehavior behaviorTemplate;
+    CompositeBehavior behavior;
 
-
-    [Range(5, 500)]
+  [Range(5, 500)]
     public int startingCount = 250;
     public float AgentDensity = 0.08f;
 
@@ -39,6 +39,8 @@ public class Flock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    behavior = Object.Instantiate(behaviorTemplate);
+    
         squareMaxspeed = maxSpeed * maxSpeed;
         squareNeighborRadius = neigbourgRadius * neigbourgRadius;
         squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
@@ -70,9 +72,14 @@ public class Flock : MonoBehaviour
     {
         agents.Add(agent);
     }
+    
+    public void FreakOut()
+    {
+      Debug.Log("yipikaye motherfucker");
+      behavior.weights[2] = 500;
+    }
 
-
-   
+  
    
 
 
@@ -81,7 +88,15 @@ public class Flock : MonoBehaviour
     void Update()
     {
 
-        agents.RemoveAll(list_item => list_item == null);
+    // Send scene changes to arduino
+    if (Input.GetKeyDown(KeyCode.G))
+    {
+      FreakOut();
+    }
+
+
+
+    agents.RemoveAll(list_item => list_item == null);
 
         foreach (FlockAgent agent in agents)
         {
@@ -123,7 +138,7 @@ public class Flock : MonoBehaviour
 
        foreach (FlockAgent agent in agents)
         {
-            agent.gameObject.GetComponent<aaa>().Hurt(DommageFlock);
+            agent.gameObject.GetComponent<Specimen>().Hurt(DommageFlock);
 
         }
         
