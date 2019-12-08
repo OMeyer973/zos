@@ -432,17 +432,18 @@ MonoBehaviour:
   agentPrefab: {fileID: 4231127697916612680, guid: e92bac3c99206e1438ef58f0e169bc51,
     type: 3}
   behaviorTemplate: {fileID: 11400000, guid: f5d578c0f02f4f945b7a8e7821e80452, type: 2}
-  startingCount: 5
+  maxAgentCount: 5
+  startingCount: 1
   AgentDensity: 1
   drivefactor: 10
   maxSpeed: 5
   neigbourgRadius: 1.5
   avoidanceRadiusMultiplier: 0.5
   HurtDamage: 30
-  freakOutTime: 5
+  freakOutTime: 1
   freakOutBehaviorsParam: []
   freakOutMaxSpeed: 0
-  freakOutNeighborRadius: 0
+  freakOutNeigbourgRadius: 0
   freakOutAvoidanceRadius: 0
 --- !u!4 &354351398
 Transform:
@@ -840,6 +841,7 @@ MonoBehaviour:
   agentPrefab: {fileID: 6797103024265313508, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
     type: 3}
   behaviorTemplate: {fileID: 0}
+  maxAgentCount: 30
   startingCount: 5
   AgentDensity: 0.08
   drivefactor: 1
@@ -850,7 +852,7 @@ MonoBehaviour:
   freakOutTime: 5
   freakOutBehaviorsParam: []
   freakOutMaxSpeed: 0
-  freakOutNeighborRadius: 0
+  freakOutNeigbourgRadius: 0
   freakOutAvoidanceRadius: 0
 --- !u!1 &1679998881
 GameObject:
@@ -980,14 +982,15 @@ MonoBehaviour:
   agentPrefab: {fileID: 4231127697916612680, guid: 1f63caef9afce84488e8e27d348ebfdf,
     type: 3}
   behaviorTemplate: {fileID: 11400000, guid: 6b75b2beb21227f44b1dc5125a7671e2, type: 2}
-  startingCount: 10
+  maxAgentCount: 5
+  startingCount: 1
   AgentDensity: 10
   drivefactor: 10
   maxSpeed: 5
   neigbourgRadius: 1.6
   avoidanceRadiusMultiplier: 0.5
   HurtDamage: 30
-  freakOutTime: 5
+  freakOutTime: 1
   freakOutBehaviorsParam:
   - 10
   - 1
@@ -995,7 +998,7 @@ MonoBehaviour:
   - 0
   - 0
   freakOutMaxSpeed: 40
-  freakOutNeighborRadius: 0
+  freakOutNeigbourgRadius: 0
   freakOutAvoidanceRadius: 0
 --- !u!4 &1733043846
 Transform:

@@ -97,9 +97,11 @@ MonoBehaviour:
   specieName: Food
   childPrefab: {fileID: 0}
   corpsePrefab: {fileID: 0}
-  health: 0
-  lifeTime: 500
+  maxHealth: 100
+  lifeTime: 5
   foodToEatBeforeReproducing: 0
+  timeBetween2Meals: 10
+  eatingDelay: 0
   SpecieToEat: tagnull
   attackStrength: 0
   nutritiousValue: 50

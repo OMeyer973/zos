@@ -15,6 +15,7 @@ public class EcosystemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AddNewSpecie();
     }
 
     // drop one food bit in the ecosystem
@@ -41,18 +42,16 @@ public class EcosystemManager : MonoBehaviour
         //food
         if (Input.GetButtonDown("Fire1"))
         {
-            StartCoroutine(DropFoodBatch());
+            // StartCoroutine(DropFoodBatch());
+            AddNewSpecie();
         }
          //hurt
         if (Input.GetButtonDown("Fire2"))
         {
             HurtEcosystem();
-            foreach (GameObject specieObject in species)
-            {
-                specieObject.GetComponent<Specie>().HurtAll();
-            }
         }
     }
+
     //dropfood
     //boost
     //hurt
@@ -60,14 +59,42 @@ public class EcosystemManager : MonoBehaviour
     // hurt and freak out all the specimen in the ecosystem
     public void HurtEcosystem()
     {
-        foreach(GameObject specieObject in species)
+        foreach (GameObject specieObject in species)
         {
             Specie specie = specieObject.GetComponent<Specie>();
             specie.HurtSpecimens();
         }
     }
 
+    // heal and calm down all the specimen in the ecosystem
+    public void HealEcosystem()
+    {
+        foreach (GameObject specieObject in species)
+        {
+            Specie specie = specieObject.GetComponent<Specie>();
+            specie.HealSpecimens();
+        }
+    }
+
     //heal
     //addspecies
 
+    // heal and freak out all the specimen in the ecosystem
+    public void AddNewSpecie()
+    {
+        bool canAddMore = true;
+        foreach (GameObject specieObject in species)
+        {
+            Debug.Log("adding specie");
+            if (canAddMore)
+            {
+                Specie specie = specieObject.GetComponent<Specie>();
+
+                if (specie.AgentCount() <= 0)
+                    canAddMore = false;
+
+                specie.SpawnInitialAgentCount();
+            }
+        }
+    }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,11 +13,14 @@ public class Specimen : MonoBehaviour
     public GameObject childPrefab;
     public GameObject corpsePrefab;
 
-    public float health = 100f;
+    public float maxHealth = 100f;
+    float health;
     public float lifeTime = 60f; // in seconds
     float aliveTime = 0f;
     public float foodToEatBeforeReproducing = 60f;
     float foodEaten = 0;
+    public float timeBetween2Meals = 3f;
+    float eatingDelay;
 
     [Tooltip("tag of the specie to Eat")]
     public string SpecieToEat = "food";
@@ -29,13 +33,17 @@ public class Specimen : MonoBehaviour
     {
         specie = GameObject.Find(specieName).GetComponent<Specie>();
         if (specie == null) Debug.Log("ERR : failed to initiate specie");
+        health = maxHealth;
         aliveTime = 0f;
         foodEaten = 0f;
+        eatingDelay = 0f;
     }
 
     void Update()
     {
         aliveTime += Time.deltaTime;
+        if (eatingDelay > 0)
+            eatingDelay -= Time.deltaTime;
         if (aliveTime >= lifeTime)
             Die();
     }
@@ -55,23 +63,25 @@ public class Specimen : MonoBehaviour
     // munch on another specimen
     public void Eat(Specimen other)
     {
-        Debug.Log("eating");
+        eatingDelay = timeBetween2Meals;
+        //Debug.Log("eating");
         health += other.nutritiousValue;
+        health = Math.Min(health, maxHealth);
         foodEaten += other.nutritiousValue;
 
         if ( foodEaten >= foodToEatBeforeReproducing)
         {
             ReproductSelf();
+            foodEaten = 0f;
         }
     }
 
     void ReproductSelf()
     {
         //Debug.Log("Specimen " + name + " has reproduced!");
-        foodEaten = 0f;
 
         if (specie == null) Debug.Log("error: can't find specie to add child");
-        specie.SpawnSpecimen(transform);
+        specie.SpawnAgent(transform.position, transform.rotation) ;
     }
 
     // inflict damage to specimen and eventually die
@@ -84,15 +94,22 @@ public class Specimen : MonoBehaviour
         }
     }
 
+    // inflict damage to specimen and eventually die
+    public void Heal()
+    {
+        health = maxHealth;
+    }
+
     // make the specimen die (spawn a corpse and destroy gameobject)
     public void Die()
     {
+        Debug.Log("izded");
         if (corpsePrefab != null)
-            Instantiate(corpsePrefab, this.transform);
+        {
+            Instantiate(corpsePrefab, this.transform.position, this.transform.rotation);
+        }
         Destroy(this.gameObject);
     }
-
-
 }
 
 

@@ -79,9 +79,11 @@ MonoBehaviour:
   childPrefab: {fileID: 4231127697916612680}
   corpsePrefab: {fileID: 6797103024265313508, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
     type: 3}
-  health: 100
-  lifeSpan: 10
+  maxHealth: 100
+  lifeTime: 60
   foodToEatBeforeReproducing: 50
+  timeBetween2Meals: 2
+  eatingDelay: 0
   SpecieToEat: food
   attackStrength: 10
   nutritiousValue: 20

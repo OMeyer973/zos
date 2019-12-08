@@ -18,18 +18,15 @@ public class Flock : MonoBehaviour
 
     protected List<GameObject> agents = new List<GameObject>();
 
-    [Range(5, 500)]
-    public int startingCount = 250;
+
+    public int maxAgentCount = 30;
+    public int startingCount = 10;
     public float AgentDensity = 0.08f;
 
-    [Range(1f, 100f)]
     public float drivefactor = 10;
-    [Range(1f, 100f)]
     public float maxSpeed = 5f;
 
-    [Range(1f, 10f)]
     public float neigbourgRadius = 1.5f;
-    [Range(0f, 1f)]
     public float avoidanceRadiusMultiplier = 0.5f;
 
     float squareMaxspeed;
@@ -47,22 +44,37 @@ public class Flock : MonoBehaviour
         squareNeighborRadius = neigbourgRadius * neigbourgRadius;
         squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
 
-        for (int i = 0; i < startingCount; i++)
+        //SpawnInitialAgentCount();
+    }
+
+    public int AgentCount()
+    {
+        return agents.Count;
+    }
+
+    // spawn a new specimen at a given transform
+    public void SpawnAgent(Vector3 pos, Quaternion rot)
+    {
+        if (agents.Count < maxAgentCount)
         {
-            GameObject newAgent = Instantiate(
-                agentPrefab,
-                Random.insideUnitCircle * startingCount * AgentDensity,
-                Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f)),
-                transform
-                ) ;
-            newAgent.name = "Agent" + i;
-            newAgent.GetComponent<FlockAgent>().Initialize(this);
-           
-            agents.Add(newAgent);
+            GameObject newSpecimen = Instantiate(agentPrefab, pos, rot, transform);
+            addAgentToList(newSpecimen);
         }
     }
 
-    public void addAgent(GameObject agent) 
+    // spawn a new specimen at a given transform
+    public void SpawnInitialAgentCount()
+    {
+        for (int i = 0; i < startingCount; i++)
+        {
+            SpawnAgent(
+                Random.insideUnitCircle * startingCount * AgentDensity,
+                Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f))
+            );
+        }
+    }
+
+    public void addAgentToList(GameObject agent) 
     {
         agents.Add(agent.gameObject);
     }
@@ -71,7 +83,7 @@ public class Flock : MonoBehaviour
     protected void Update()
     {
         // todo: remove
-       // behavior = Object.Instantiate(behaviorTemplate);
+        //behavior = Object.Instantiate(behaviorTemplate);
 
         agents.RemoveAll(list_item => list_item == null);
 

@@ -21,12 +21,7 @@ public class Specie : Flock
         base.Start();
     }
 
-    // spawn a new specimen at a given transform
-    public void SpawnSpecimen(Transform tr)
-    {
-        GameObject newSpecimen = Instantiate(agentPrefab, tr.position, tr.rotation, transform);
-        addAgent(newSpecimen);
-    }
+
 
     // hurt all the specimen of the specie by a given amount
     public void HurtSpecimens()
@@ -87,16 +82,15 @@ public class Specie : Flock
         }
     }
 
-    // hurt all the specimen in the specie
-    public void HurtAll()
+    // heal all the specimen in the specie
+    public void HealSpecimens()
     {
-        // todo : freak out
+        // todo : calm down animation
         foreach (GameObject agentObject in agents)
         {
-            Debug.Log("hurting specimen");
-            agentObject.GetComponent<Specimen>().TakeDamage(HurtDamage);
+            // Debug.Log("healing specimen");
+            agentObject.GetComponent<Specimen>().Heal();
         }
-        
     }
 }
 
