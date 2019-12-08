@@ -8,6 +8,10 @@ TagManager:
   - flock blue
   - food
   - tagnull
+  - Cellule 1
+  - Pinceoreille 4
+  - poulpi 3
+  - snake 2
   layers:
   - Default
   - TransparentFX

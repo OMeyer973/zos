@@ -71,7 +71,7 @@ public class Flock : MonoBehaviour
     protected void Update()
     {
         // todo: remove
-        behavior = Object.Instantiate(behaviorTemplate);
+       // behavior = Object.Instantiate(behaviorTemplate);
 
         agents.RemoveAll(list_item => list_item == null);
 
