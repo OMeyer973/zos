@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 605c8473340c75f4894625d396f95258, type: 3}
-  m_Name: Stay In Radius Behavior
+  m_Script: {fileID: 11500000, guid: 1eccc732589dc02409df0ffef1adbbaf, type: 3}
+  m_Name: HuntFilter 2
   m_EditorClassIdentifier: 
-  center: {x: 0, y: 0}
-  radius: 50
+  mask:
+    serializedVersion: 2
+    m_Bits: 2048

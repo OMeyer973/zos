@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3787820970132589322}
   - component: {fileID: 2344427909578165001}
   - component: {fileID: 50592883496697388}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: snake 2
   m_TagString: snake 2
   m_Icon: {fileID: 0}
@@ -4791,9 +4791,10 @@ MonoBehaviour:
   childPrefab: {fileID: 8006026793700664116}
   corpsePrefab: {fileID: 6797103024265313508, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
     type: 3}
-  health: 120
-  lifeTime: 60
+  maxHealth: 100
+  lifeTime: 500
   foodToEatBeforeReproducing: 60
+  timeBetween2Meals: 3
   SpecieToEat: Cellule 1
   attackStrength: 500
   nutritiousValue: 0

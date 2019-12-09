@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1377527407180524726}
   - component: {fileID: 1316958591917322734}
   - component: {fileID: 50831027133087144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cellule 1
   m_TagString: Cellule 1
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7290105488294986355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.813921, y: -10.874129, z: 5.36199}
+  m_LocalPosition: {x: -17.813921, y: -10.874129, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1722908274877232026}
@@ -51,12 +51,13 @@ MonoBehaviour:
   childPrefab: {fileID: 7290105488294986355}
   corpsePrefab: {fileID: 6797103024265313508, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
     type: 3}
-  health: 100
-  lifeTime: 120
+  maxHealth: 100
+  lifeTime: 1000
   foodToEatBeforeReproducing: 60
+  timeBetween2Meals: 3
   SpecieToEat: food
-  attackStrength: 500
-  nutritiousValue: 0
+  attackStrength: 20
+  nutritiousValue: 30
 --- !u!58 &1377527407180524726
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -117,6 +118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "B\xEAte_3_FBX"
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 52d432ea45d47d84aafa979faa28da8d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 52d432ea45d47d84aafa979faa28da8d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.007823539
@@ -127,7 +132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 52d432ea45d47d84aafa979faa28da8d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.003496087
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 52d432ea45d47d84aafa979faa28da8d, type: 3}
       propertyPath: m_LocalRotation.x

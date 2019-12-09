@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6059c28ad92cfef49a6a77100e21a7b8, type: 3}
   m_Name: Cellule 1 flockbehavior
   m_EditorClassIdentifier: 
-  filter: {fileID: 11400000, guid: d3e386bca061ccc40a92bbc5d9a940e6, type: 2}
+  filter: {fileID: 0}
   behaviors:
   - {fileID: 11400000, guid: d1756dde39bb9c8469da9ce536c04dc3, type: 2}
   - {fileID: 11400000, guid: 140fd365a4c991b4f9be46bc1b5b4f53, type: 2}
@@ -22,6 +22,6 @@ MonoBehaviour:
   weights:
   - 20
   - 10
-  - 63.2
+  - 2
   - 100
-  - 80
+  - 369.37
