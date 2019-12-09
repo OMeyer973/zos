@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 // This class controls the movement behavior of a flock 
 // !! only the movement !!
 

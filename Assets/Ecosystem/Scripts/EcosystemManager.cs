@@ -52,10 +52,6 @@ public class EcosystemManager : MonoBehaviour
         }
     }
 
-    //dropfood
-    //boost
-    //hurt
-
     // hurt and freak out all the specimen in the ecosystem
     public void HurtEcosystem()
     {
@@ -76,10 +72,7 @@ public class EcosystemManager : MonoBehaviour
         }
     }
 
-    //heal
-    //addspecies
-
-    // heal and freak out all the specimen in the ecosystem
+    // add specimen and new specie in the ecosystem
     public void AddNewSpecie()
     {
         bool canAddMore = true;
