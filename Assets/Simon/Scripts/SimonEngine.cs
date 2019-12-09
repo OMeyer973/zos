@@ -225,7 +225,7 @@ namespace Zos
       {
         if (LianaStates[i])
         {
-          ecosystemManager.DropFoodContinuous();
+          ecosystemManager.DropFoodContinuous(4f);
           // todo attract ecosysteme creatures toward point i
           // possible when it will be implemented (LOL)
         }

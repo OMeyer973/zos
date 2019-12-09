@@ -45,9 +45,9 @@ public class EcosystemManager : MonoBehaviour
         }
     }
 
-    public void DropFoodContinuous()
+    public void DropFoodContinuous(float amount)
     {
-        continuousFoodDropTime += Time.deltaTime;
+        continuousFoodDropTime += Time.deltaTime * amount;
         if (continuousFoodDropTime > continuousFoodDropRate)
         {
             continuousFoodDropTime = 0f;
@@ -59,6 +59,7 @@ public class EcosystemManager : MonoBehaviour
     // DEBUG STUFF
     void Update()
     {
+        DropFoodContinuous(1f);
         //food
         if (Input.GetButtonDown("Fire1"))
         {
