@@ -21,8 +21,6 @@ public class Specie : Flock
         base.Start();
     }
 
-
-
     // hurt all the specimen of the specie by a given amount
     public void HurtSpecimens()
     {
