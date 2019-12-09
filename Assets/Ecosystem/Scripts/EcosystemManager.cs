@@ -63,9 +63,9 @@ public class EcosystemManager : MonoBehaviour
         //food
         if (Input.GetButtonDown("Fire1"))
         {
-            //AddNewSpecie();
+            AddNewSpecie();
             //DropFoodBatch();
-            FreakOutEcosystem();
+            //FreakOutEcosystem();
             //HealEcosystem();
 
         }
