@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6059c28ad92cfef49a6a77100e21a7b8, type: 3}
+  m_Name: Poulpie 3 flockbehavior
+  m_EditorClassIdentifier: 
+  filter: {fileID: 11400000, guid: d3e386bca061ccc40a92bbc5d9a940e6, type: 2}
+  behaviors:
+  - {fileID: 11400000, guid: d1756dde39bb9c8469da9ce536c04dc3, type: 2}
+  - {fileID: 11400000, guid: 140fd365a4c991b4f9be46bc1b5b4f53, type: 2}
+  - {fileID: 11400000, guid: cfcd2df28dd4abd4797b00a66ab76342, type: 2}
+  - {fileID: 11400000, guid: ae45e61bb0184fe4595b646795345391, type: 2}
+  - {fileID: 11400000, guid: 5be60e78363f1b94fa9855abcf10b61e, type: 2}
+  - {fileID: 11400000, guid: a3eb133c3f840bd46a48cc2ad480d96c, type: 2}
+  weights:
+  - 5.11
+  - 34.2
+  - -18.58
+  - 100
+  - 80
+  - 80
