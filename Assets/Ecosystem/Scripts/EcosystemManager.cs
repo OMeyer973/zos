@@ -9,8 +9,10 @@ public class EcosystemManager : MonoBehaviour
     public List<GameObject> species;
 
     public int FoodToSpawnPerBatch = 10;
-    public GameObject foodPrefab;
+    public GameObject foodSpecie;
 
+    public float continuousFoodDropRate = 1f;
+    float continuousFoodDropTime = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,38 +21,72 @@ public class EcosystemManager : MonoBehaviour
     }
 
     // drop one food bit in the ecosystem
-    public void DropFood()
+    void DropFood()
     {
         Debug.Log("dropping food");
         Vector3 spawnPosition = Random.insideUnitSphere * EcosystemRadius;
         spawnPosition.z = 0;
-        Instantiate(foodPrefab, spawnPosition, Quaternion.Euler(spawnPosition));
+        foodSpecie.GetComponent<Specie>().SpawnAgent(spawnPosition, Quaternion.Euler(spawnPosition));
     }
 
     // drop a batch of food in the ecosystem
-    IEnumerator DropFoodBatch()
+    public void DropFoodBatch()
+    {
+        StartCoroutine(DropFoodBatchAnim());
+    }
+
+    // coroutine called when dropping a batch of food into the ecosystem
+    IEnumerator DropFoodBatchAnim()
     {
         for (int i=0; i<FoodToSpawnPerBatch; i++)
         {
             DropFood();
-            yield return new WaitForSeconds(Time.deltaTime*.3f);
+            yield return new WaitForSeconds(Time.deltaTime);
         }
     }
 
+    public void DropFoodContinuous()
+    {
+        continuousFoodDropTime += Time.deltaTime;
+        if (continuousFoodDropTime > continuousFoodDropRate)
+        {
+            continuousFoodDropTime = 0f;
+            DropFood();
+        }
+    }
+
+    //////////////////////
+    // DEBUG STUFF
     void Update()
     {
         //food
         if (Input.GetButtonDown("Fire1"))
         {
-            // StartCoroutine(DropFoodBatch());
-            AddNewSpecie();
+            //AddNewSpecie();
+            //DropFoodBatch();
+            FreakOutEcosystem();
+            //HealEcosystem();
+
         }
-         //hurt
+        //hurt
         if (Input.GetButtonDown("Fire2"))
         {
             HurtEcosystem();
         }
     }
+    // END DEBUG STUFF
+    //////////////////////
+
+    // makes the whole ecosystem go wild
+    public void FreakOutEcosystem()
+    {
+        foreach (GameObject specieObject in species)
+        {
+            Specie specie = specieObject.GetComponent<Specie>();
+            specie.FreakOut();
+        }
+    }
+
 
     // hurt and freak out all the specimen in the ecosystem
     public void HurtEcosystem()

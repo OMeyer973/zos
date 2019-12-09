@@ -599,7 +599,12 @@ MonoBehaviour:
   avoidanceRadiusMultiplier: 0.5
   HurtDamage: 0
   freakOutTime: 5
-  freakOutBehaviorsParam: []
+  freakOutBehaviorsParam:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   freakOutMaxSpeed: 0
   freakOutNeigbourgRadius: 0
   freakOutAvoidanceRadius: 0
@@ -615,7 +620,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1286152458}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &152591661
 GameObject:
@@ -1331,6 +1336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arduinoWhisperer: {fileID: 2019132151}
   soundEngine: {fileID: 1638717079}
+  ecosystemManager: {fileID: 1286152457}
+  lightController: {fileID: 705507996}
   MaxActionTime: 60
 --- !u!1 &566926632
 GameObject:
@@ -1389,7 +1396,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1286152458}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &624982257
 GameObject:
@@ -1448,7 +1455,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1286152458}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &651170766
 GameObject:
@@ -1714,8 +1721,9 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Directional Light w LightController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1773,6 +1781,27 @@ Transform:
   m_Father: {fileID: 1777923539}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -369.42, y: 0, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b37e89c66435e4eae9de2a504da916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultIntensity: 1
+  highIntensity: 2
+  lowIntensity: 0.1
+  winAnimTime: 12
+  failAnimTime: 4
+  minFlickerOnTime: 0.2
+  maxFlickerOnTime: 0.6
+  minFlickerOffTime: 0.01
+  maxFlickerOffTime: 0.15
 --- !u!1 &712115467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,7 +1859,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1286152458}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &824918922
 GameObject:
@@ -2084,15 +2113,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a19074241f9f60f47bf74839cc999b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EcosystemRadius: 1
+  EcosystemRadius: 40
   species:
   - {fileID: 624982257}
   - {fileID: 566926632}
   - {fileID: 712115467}
   - {fileID: 130255221}
   FoodToSpawnPerBatch: 10
-  foodPrefab: {fileID: 6797103024265313508, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
-    type: 3}
+  foodSpecie: {fileID: 1343789547}
+  continuousFoodDropRate: 1
 --- !u!4 &1286152458
 Transform:
   m_ObjectHideFlags: 0
@@ -2104,6 +2133,7 @@ Transform:
   m_LocalPosition: {x: 0.7171438, y: -3.7101402, z: 0.5727844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1343789548}
   - {fileID: 624982259}
   - {fileID: 566926634}
   - {fileID: 712115469}
@@ -2327,12 +2357,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343789547}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.10827, y: 8.120396, z: -15.014349}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -25.825415, y: 11.830536, z: -15.587133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1286152458}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1343789549
 MonoBehaviour:
@@ -2814,7 +2844,7 @@ Transform:
   - {fileID: 705507995}
   - {fileID: 898975486}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1821556392
 PrefabInstance:
@@ -2845,7 +2875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0508988054884a948a03c88c4754191b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0508988054884a948a03c88c4754191b, type: 3}
       propertyPath: m_LocalRotation.x
