@@ -86,6 +86,8 @@ public class Flock : MonoBehaviour
 
         agents.RemoveAll(list_item => list_item == null);
 
+        if (behaviorTemplate.name == "null") return;
+
         foreach (GameObject agent in agents)
         {
             FlockAgent flockAgent = agent.GetComponent<FlockAgent>();
@@ -107,6 +109,8 @@ public class Flock : MonoBehaviour
     }
     List<Transform> GetNearbyObjects(FlockAgent agent)
     {
+        if (behaviorTemplate.name == "null") return new List<Transform>();
+
         List<Transform> context = new List<Transform>();
         Collider2D[] contextColliders = Physics2D.OverlapCircleAll(agent.transform.position, neigbourgRadius);
         //pour la 3d virrer les 2d

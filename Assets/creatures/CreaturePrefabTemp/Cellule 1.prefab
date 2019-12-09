@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1377527407180524726}
   - component: {fileID: 1316958591917322734}
   - component: {fileID: 50831027133087144}
+  - component: {fileID: 4749234870489956571}
   m_Layer: 10
   m_Name: Cellule 1
   m_TagString: Cellule 1
@@ -49,8 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specieName: Flock 1
   childPrefab: {fileID: 7290105488294986355}
-  corpsePrefab: {fileID: 6797103024265313508, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
-    type: 3}
+  corpseName: Food
   maxHealth: 100
   lifeTime: 1000
   foodToEatBeforeReproducing: 60
@@ -107,6 +107,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &4749234870489956571
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7290105488294986355}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1001 &1722908274877360410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114,14 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1714618830615865457}
     m_Modifications:
-    - target: {fileID: 100000, guid: 52d432ea45d47d84aafa979faa28da8d, type: 3}
-      propertyPath: m_Name
-      value: "B\xEAte_3_FBX"
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 52d432ea45d47d84aafa979faa28da8d, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 52d432ea45d47d84aafa979faa28da8d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.007823539
@@ -165,6 +173,14 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 52d432ea45d47d84aafa979faa28da8d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 52d432ea45d47d84aafa979faa28da8d, type: 3}
+      propertyPath: m_Name
+      value: "B\xEAte_3_FBX"
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 52d432ea45d47d84aafa979faa28da8d, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52d432ea45d47d84aafa979faa28da8d, type: 3}
