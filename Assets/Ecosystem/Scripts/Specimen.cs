@@ -11,7 +11,9 @@ public class Specimen : MonoBehaviour
     Specie specie;
 
     public GameObject childPrefab;
-    public GameObject corpsePrefab;
+
+    public string corpseName;
+    Specie corpseSpecie;
 
     public float maxHealth = 100f;
     float health;
@@ -32,6 +34,7 @@ public class Specimen : MonoBehaviour
     void Start()
     {
         specie = GameObject.Find(specieName).GetComponent<Specie>();
+        if (corpseName != "") corpseSpecie = GameObject.Find(corpseName).GetComponent<Specie>();
         if (specie == null) Debug.Log("ERR : failed to initiate specie");
         health = maxHealth;
         aliveTime = 0f;
@@ -81,7 +84,7 @@ public class Specimen : MonoBehaviour
         //Debug.Log("Specimen " + name + " has reproduced!");
 
         if (specie == null) Debug.Log("error: can't find specie to add child");
-        specie.SpawnAgent(transform.position, transform.rotation) ;
+        specie.SpawnAgent(transform.position, transform.rotation);
     }
 
     // inflict damage to specimen and eventually die
@@ -103,10 +106,9 @@ public class Specimen : MonoBehaviour
     // make the specimen die (spawn a corpse and destroy gameobject)
     public void Die()
     {
-        Debug.Log("izded");
-        if (corpsePrefab != null)
+        if (corpseSpecie != null)
         {
-            Instantiate(corpsePrefab, this.transform.position, this.transform.rotation);
+            corpseSpecie.SpawnAgent(transform.position, transform.rotation);
         }
         Destroy(this.gameObject);
     }

@@ -80,8 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specieName: Flock 3
   childPrefab: {fileID: 4074421441191336749}
-  corpsePrefab: {fileID: 6797103024265313508, guid: fb92e69bcfbef3d4a90f7052063f1a6f,
-    type: 3}
+  corpseName: Food
   maxHealth: 100
   lifeTime: 60
   foodToEatBeforeReproducing: 60
