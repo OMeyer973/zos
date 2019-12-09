@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Specimen : MonoBehaviour
 {
 
@@ -30,7 +31,15 @@ public class Specimen : MonoBehaviour
 
     [Tooltip("how much does it regen the specimen who is eating it")]
     public float nutritiousValue;
-   
+
+    [Header("Sounds")]
+    public AudioSource IdleSound;
+    public float IdleSoundProbability = .5f;
+    public AudioSource DeathSound;
+    public float DeathSoundProbability = .5f;
+    public AudioSource EatSound;
+    public float EatSoundProbability = .5f;
+
     void Start()
     {
         specie = GameObject.Find(specieName).GetComponent<Specie>();
@@ -44,6 +53,10 @@ public class Specimen : MonoBehaviour
 
     void Update()
     {
+        if (UnityEngine.Random.Range(0f, 1f) > IdleSoundProbability * Time.deltaTime && IdleSound != null)
+        {
+            IdleSound.Play();
+        }
         aliveTime += Time.deltaTime;
         if (eatingDelay > 0)
             eatingDelay -= Time.deltaTime;
@@ -66,6 +79,11 @@ public class Specimen : MonoBehaviour
     // munch on another specimen
     public void Eat(Specimen other)
     {
+        if (UnityEngine.Random.Range(0f, 1f) > EatSoundProbability && EatSound != null)
+        {
+            EatSound.Play();
+        }
+
         eatingDelay = timeBetween2Meals;
         //Debug.Log("eating");
         health += other.nutritiousValue;
@@ -106,6 +124,10 @@ public class Specimen : MonoBehaviour
     // make the specimen die (spawn a corpse and destroy gameobject)
     public void Die()
     {
+        if (UnityEngine.Random.Range(0f, 1f) > DeathSoundProbability && DeathSound != null)
+        {
+            DeathSound.Play();
+        }
         if (corpseSpecie != null)
         {
             corpseSpecie.SpawnAgent(transform.position, transform.rotation);

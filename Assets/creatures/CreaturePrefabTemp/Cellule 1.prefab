@@ -58,6 +58,12 @@ MonoBehaviour:
   SpecieToEat: food
   attackStrength: 20
   nutritiousValue: 30
+  IdleSound: {fileID: 0}
+  IdleSoundProbability: 0
+  DeathSound: {fileID: 0}
+  DeathSoundProbability: 0
+  EatSound: {fileID: 0}
+  EatSoundProbability: 0
 --- !u!58 &1377527407180524726
 CircleCollider2D:
   m_ObjectHideFlags: 0

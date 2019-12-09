@@ -67,7 +67,6 @@ public class EcosystemManager : MonoBehaviour
             //DropFoodBatch();
             //FreakOutEcosystem();
             //HealEcosystem();
-
         }
         //hurt
         if (Input.GetButtonDown("Fire2"))

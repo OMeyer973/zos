@@ -10,7 +10,7 @@
 // HARDWARE VARS
 int sensorPins[4] = {A0,A1,A2,A3};   // Pins in which the sensorStates are plugged
 
-int sensorThreshold = 30; 
+int sensorThreshold = 10; 
 
 int stripLen = 60;                   // number of LEDs on the strips
 
