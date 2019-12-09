@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8006026793700664116
+--- !u!1 &1217432367
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,99 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8006026793700664075}
-  - component: {fileID: 8006026793700664074}
-  - component: {fileID: 8006026793700664117}
-  - component: {fileID: 6759635437638655661}
-  - component: {fileID: 3787820970132589322}
-  - component: {fileID: 2344427909578165001}
-  - component: {fileID: 50592883496697388}
-  - component: {fileID: 58238749487835098}
+  - component: {fileID: 1217432368}
+  - component: {fileID: 1217432370}
+  - component: {fileID: 1217432369}
   m_Layer: 11
-  m_Name: snake 2
-  m_TagString: snake 2
+  m_Name: snake trail
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8006026793700664075
+--- !u!4 &1217432368
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8006026793700664116}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.33, y: 6.6, z: -4.23}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_GameObject: {fileID: 1217432367}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 8006026793700664075}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!198 &8006026793700664074
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!199 &1217432370
+ParticleSystemRenderer:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217432367}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d307c85440dd6ae408fd7d302cdb1b97, type: 2}
+  - {fileID: 2100000, guid: 5d2aa9dc5aa930648bfbc0c7c3a8985a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_RenderMode: 0
+  m_SortMode: 0
+  m_MinParticleSize: 0
+  m_MaxParticleSize: 0.5
+  m_CameraVelocityScale: 0
+  m_VelocityScale: 0
+  m_LengthScale: 2
+  m_SortingFudge: 0
+  m_NormalDirection: 1
+  m_ShadowBias: 0
+  m_RenderAlignment: 0
+  m_Pivot: {x: 0, y: 0, z: 0}
+  m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 1
+  m_EnableGPUInstancing: 1
+  m_ApplyActiveColorSpace: 1
+  m_AllowRoll: 1
+  m_VertexStreams: 000304
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh1: {fileID: 0}
+  m_Mesh2: {fileID: 0}
+  m_Mesh3: {fileID: 0}
+  m_MaskInteraction: 0
+--- !u!198 &1217432369
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8006026793700664116}
+  m_GameObject: {fileID: 1217432367}
   serializedVersion: 6
   lengthInSec: 1
   simulationSpeed: 1
@@ -173,7 +230,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -289,7 +346,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2595,7 +2652,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2648,7 +2705,7 @@ ParticleSystem:
     strengthY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2701,7 +2758,7 @@ ParticleSystem:
     strengthZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2751,7 +2808,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    separateAxes: 0
+    separateAxes: 1
     frequency: 0.1
     damping: 1
     octaves: 1
@@ -3988,24 +4045,24 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 27.00363
-          outSlope: 27.00363
+          inSlope: -0.1472855
+          outSlope: -0.1472855
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0.050945554
+          outWeight: 0.5762612
         - serializedVersion: 3
-          time: 0.2500504
-          value: 0.15379909
-          inSlope: 0.9367843
-          outSlope: 0.9367843
+          time: 0.39113316
+          value: 0.34097102
+          inSlope: 3.244034
+          outSlope: 3.244034
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.31393456
+          outWeight: 0.14017142
         - serializedVersion: 3
-          time: 0.36727262
-          value: 0.45419344
+          time: 0.55283475
+          value: 0.30034673
           inSlope: -3.5349722
           outSlope: -3.5349722
           tangentMode: 0
@@ -4013,22 +4070,31 @@ ParticleSystem:
           inWeight: 0.73943686
           outWeight: 0.16473593
         - serializedVersion: 3
-          time: 0.87146443
-          value: 0.62576145
-          inSlope: -0.18633792
-          outSlope: -0.18633792
+          time: 0.6236022
+          value: 0.14131169
+          inSlope: 0.13361703
+          outSlope: 0.13361703
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.6937028
+          value: 0.40012595
+          inSlope: 2.719347
+          outSlope: 2.719347
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.49040952
-          outWeight: 0.33333334
+          outWeight: 0.14761266
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: -1.3946074
-          outSlope: -1.3946074
+          inSlope: -16.552013
+          outSlope: -16.552013
           tangentMode: 0
           weightedMode: 0
-          inWeight: 1
+          inWeight: 0.02531218
           outWeight: 1
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -4686,68 +4752,42 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &8006026793700664117
-ParticleSystemRenderer:
+--- !u!1 &8006026793700664116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8006026793700664075}
+  - component: {fileID: 6759635437638655661}
+  - component: {fileID: 3787820970132589322}
+  - component: {fileID: 2344427909578165001}
+  - component: {fileID: 50592883496697388}
+  - component: {fileID: 58238749487835098}
+  m_Layer: 11
+  m_Name: snake 2
+  m_TagString: snake 2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8006026793700664075
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8006026793700664116}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: d307c85440dd6ae408fd7d302cdb1b97, type: 2}
-  - {fileID: 2100000, guid: 5d2aa9dc5aa930648bfbc0c7c3a8985a, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_RenderMode: 0
-  m_SortMode: 0
-  m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
-  m_CameraVelocityScale: 0
-  m_VelocityScale: 0
-  m_LengthScale: 2
-  m_SortingFudge: 0
-  m_NormalDirection: 1
-  m_ShadowBias: 0
-  m_RenderAlignment: 0
-  m_Pivot: {x: 0, y: 0, z: 0}
-  m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 1
-  m_EnableGPUInstancing: 1
-  m_ApplyActiveColorSpace: 1
-  m_AllowRoll: 1
-  m_VertexStreams: 000304
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-  m_Mesh1: {fileID: 0}
-  m_Mesh2: {fileID: 0}
-  m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 0
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.33, y: 6.6, z: -4.23}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children:
+  - {fileID: 1217432368}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!58 &6759635437638655661
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4763,7 +4803,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.59
+  m_Radius: 0.5
 --- !u!114 &3787820970132589322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4798,6 +4838,12 @@ MonoBehaviour:
   SpecieToEat: Cellule 1
   attackStrength: 500
   nutritiousValue: 0
+  IdleSound: {fileID: 0}
+  IdleSoundProbability: 0.5
+  DeathSound: {fileID: 0}
+  DeathSoundProbability: 0.5
+  EatSound: {fileID: 0}
+  EatSoundProbability: 0.5
 --- !u!50 &50592883496697388
 Rigidbody2D:
   serializedVersion: 4
@@ -4834,4 +4880,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.38
+  m_Radius: 0.3
