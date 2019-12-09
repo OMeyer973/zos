@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3787820970132589322}
   - component: {fileID: 2344427909578165001}
   - component: {fileID: 50592883496697388}
+  - component: {fileID: 58238749487835098}
   m_Layer: 11
   m_Name: snake 2
   m_TagString: snake 2
@@ -4819,3 +4820,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58238749487835098
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8006026793700664116}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.38

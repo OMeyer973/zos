@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7021982069796188855}
   - component: {fileID: 830887504823649696}
   - component: {fileID: 50666913785980258}
+  - component: {fileID: 58761884731730194}
   m_Layer: 12
   m_Name: poulpi 3
   m_TagString: poulpi 3
@@ -121,6 +122,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58761884731730194
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4074421441191336749}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &4074421441191336751
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1377527407180524726}
   - component: {fileID: 1316958591917322734}
   - component: {fileID: 50831027133087144}
+  - component: {fileID: 4749234870489956571}
   m_Layer: 10
   m_Name: Cellule 1
   m_TagString: Cellule 1
@@ -107,6 +108,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &4749234870489956571
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7290105488294986355}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1001 &1722908274877360410
 PrefabInstance:
   m_ObjectHideFlags: 0
