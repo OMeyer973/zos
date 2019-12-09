@@ -3,8 +3,6 @@ using System.Collections;
 
 public class LightController : MonoBehaviour
 {
-
-
     Light sunLight;
 
     public float defaultIntensity = 1f;
@@ -32,10 +30,16 @@ public class LightController : MonoBehaviour
     // trigger a flicker animation on simon fail
     public void Win()
     {
-        StartCoroutine(sineIntensity(winAnimTime));
+        StartCoroutine(SineIntensity(winAnimTime));
     }
 
-    IEnumerator sineIntensity(float timeToWait)
+    // trigger a flicker animation on simon fail
+    public void SmallWin()
+    {
+        StartCoroutine(SineIntensity(winAnimTime * .4f));
+    }
+
+    IEnumerator SineIntensity(float timeToWait)
     {
         StartCoroutine(GoToIntensity(highIntensity, timeToWait * .4f));
         yield return new WaitForSeconds(timeToWait * .4f);

@@ -12,6 +12,8 @@ namespace Zos
   {
     public ArduinoWhisperer arduinoWhisperer; // component that is responsible for talking to the arduino board
     public SoundEngine soundEngine; // component that is responsible for playing the audio
+    public EcosystemManager ecosystemManager; // will be called when simon is won / failed
+    public LightController lightController; // will be called when simon is won / failed
 
     public Scene CurrScene { get; private set; } // Current scene : Idle, Demo, Action
 
@@ -108,8 +110,10 @@ namespace Zos
       soundEngine.PlayTransitionSound(Transition.SmallVictory);
 
       simonSequence.NextSequence();
-      // todo : drop food in ecosystem
-      // todo : boost ecosystem
+
+      ecosystemManager.DropFoodBatch();
+      lightController.SmallWin();
+
       StartCoroutine(PlayDemo());
     }
 
@@ -122,9 +126,11 @@ namespace Zos
       CurrScene = Scene.Idle;
       ResetLianaStates();
       arduinoWhisperer.ChangeScene(Scene.Idle, Transition.Fail);
+
       soundEngine.PlayTransitionSound(Transition.Fail);
 
-      // todo : hurt ecosystem
+      ecosystemManager.HurtEcosystem();
+      lightController.Fail();
     }
 
     // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
@@ -138,19 +144,21 @@ namespace Zos
       arduinoWhisperer.ChangeScene(Scene.Idle, Transition.BigVictory);
       soundEngine.PlayTransitionSound(Transition.BigVictory);
 
-      // todo : add specie to ecosystem
-      // todo : drop food in ecosystem
-      // todo : heal ecosystem
-      // todo : boost ecosystem
+      ecosystemManager.AddNewSpecie();
+      ecosystemManager.DropFoodBatch();
+      ecosystemManager.FreakOutEcosystem();
+      ecosystemManager.HealEcosystem();
+
+      //lightController.Win();
     }
 
-    //---------------------------------------------------------------------
-    // Core scene methods
-    //---------------------------------------------------------------------
+        //---------------------------------------------------------------------
+        // Core scene methods
+        //---------------------------------------------------------------------
 
-    // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
-    // Core Action scene method : called by ArduinoWhisperer when a liana is touched
-    public void TriggerLiana(int triggeredLiana)
+        // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+        // Core Action scene method : called by ArduinoWhisperer when a liana is touched
+        public void TriggerLiana(int triggeredLiana)
     {
       Debug.Assert(CurrScene == Scene.Action, "tried to triggerLiana in a scene != Action scene");
       Debug.Assert(0 <= triggeredLiana && triggeredLiana < 4, "SetLianaState called with invalid id");
@@ -217,7 +225,9 @@ namespace Zos
       {
         if (LianaStates[i])
         {
-          //todo attract ecosysteme creatures toward point i
+          ecosystemManager.DropFoodContinuous();
+          // todo attract ecosysteme creatures toward point i
+          // possible when it will be implemented (LOL)
         }
         else
         {
