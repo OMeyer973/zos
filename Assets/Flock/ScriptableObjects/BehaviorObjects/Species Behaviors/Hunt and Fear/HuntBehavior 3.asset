@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b9d7bfd1c7d4824c8459d934e6660e7, type: 3}
-  m_Name: HuntBehavior 3
+  m_Script: {fileID: 11500000, guid: 17561fd6829efa74ea4ef62db1dff32e, type: 3}
+  m_Name: Huntbehavior 3
   m_EditorClassIdentifier: 
   filter: {fileID: 11400000, guid: 9d85af4c0bf4da745aaca6609c0f8607, type: 2}
-  agentSmoothTime: 0.5
