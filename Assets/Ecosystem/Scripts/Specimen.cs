@@ -53,7 +53,7 @@ public class Specimen : MonoBehaviour
 
     void Update()
     {
-        if (UnityEngine.Random.Range(0f, 1f) > IdleSoundProbability * Time.deltaTime && IdleSound != null)
+        if (UnityEngine.Random.Range(0f, 1f) < IdleSoundProbability * Time.deltaTime && IdleSound != null)
         {
             IdleSound.Play();
         }

@@ -4795,7 +4795,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ff20bd6206871734a8be059753b1df97, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.492
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4922,7 +4922,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bc15eeeab4535f0428e72dc79647cc87, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.492
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5090,17 +5090,17 @@ MonoBehaviour:
   corpseName: Food
   maxHealth: 100
   lifeTime: 500
-  foodToEatBeforeReproducing: 60
+  foodToEatBeforeReproducing: 50
   timeBetween2Meals: 3
   SpecieToEat: Cellule 1
-  attackStrength: 500
-  nutritiousValue: 0
+  attackStrength: 25
+  nutritiousValue: 50
   IdleSound: {fileID: 8903818070043033299}
-  IdleSoundProbability: 0.5
+  IdleSoundProbability: 0.005
   DeathSound: {fileID: 4353084542660525849}
-  DeathSoundProbability: 0.5
+  DeathSoundProbability: 0.005
   EatSound: {fileID: 3343003968574711673}
-  EatSoundProbability: 0.5
+  EatSoundProbability: 0.005
 --- !u!50 &50592883496697388
 Rigidbody2D:
   serializedVersion: 4
@@ -5181,7 +5181,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a7277a0c5bcbcd94ebfed463fdc9e03c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.492
   m_Pitch: 1
   Loop: 0
   Mute: 0

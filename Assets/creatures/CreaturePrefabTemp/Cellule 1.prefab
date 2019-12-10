@@ -43,7 +43,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 08cb80db57782b346a096917a763108b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.504
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -170,7 +170,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e36426df4386f7d439182d3b49877282, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -284,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 7290105488294986355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.813921, y: -10.874129, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8672574958877538999}
   - {fileID: 2532080300917640291}
@@ -309,18 +309,18 @@ MonoBehaviour:
   childPrefab: {fileID: 7290105488294986355}
   corpseName: Food
   maxHealth: 100
-  lifeTime: 1000
-  foodToEatBeforeReproducing: 60
+  lifeTime: 3000
+  foodToEatBeforeReproducing: 10
   timeBetween2Meals: 3
   SpecieToEat: food
   attackStrength: 20
-  nutritiousValue: 30
+  nutritiousValue: 10
   IdleSound: {fileID: 8806716777033342360}
-  IdleSoundProbability: 0
+  IdleSoundProbability: 0.002
   DeathSound: {fileID: 1787810312008196944}
-  DeathSoundProbability: 0
+  DeathSoundProbability: 0.005
   EatSound: {fileID: 7352436757249644313}
-  EatSoundProbability: 0
+  EatSoundProbability: 0.005
 --- !u!58 &1377527407180524726
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -429,7 +429,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 92ccffce15b0bab47baf31e6cf02ec62, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.485
   m_Pitch: 1
   Loop: 0
   Mute: 0

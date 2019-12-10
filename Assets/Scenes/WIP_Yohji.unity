@@ -337,13 +337,13 @@ MonoBehaviour:
   agentPrefab: {fileID: 1565788504081283425, guid: 1191b5f220dd80f4b85c524b6786345c,
     type: 3}
   behaviorTemplate: {fileID: 11400000, guid: dd14aba46b2c626458bbc9ed49594965, type: 2}
-  maxAgentCount: 30
-  startingCount: 5
+  maxAgentCount: 2
+  startingCount: 1
   AgentDensity: 1
   drivefactor: 10
-  maxSpeed: 5
+  maxSpeed: 10
   neigbourgRadius: 10
-  avoidanceRadiusMultiplier: 0.5
+  avoidanceRadiusMultiplier: 10
   HurtDamage: 0
   freakOutTime: 5
   freakOutBehaviorsParam: []
@@ -1110,12 +1110,12 @@ MonoBehaviour:
     type: 3}
   behaviorTemplate: {fileID: 11400000, guid: 132e41a258ab2a449ba8a8c571105753, type: 2}
   maxAgentCount: 30
-  startingCount: 5
+  startingCount: 1
   AgentDensity: 1
-  drivefactor: 10
-  maxSpeed: 30
-  neigbourgRadius: 10
-  avoidanceRadiusMultiplier: 1
+  drivefactor: 1
+  maxSpeed: 15
+  neigbourgRadius: 1
+  avoidanceRadiusMultiplier: 10
   HurtDamage: 0
   freakOutTime: 5
   freakOutBehaviorsParam: []
@@ -1170,11 +1170,11 @@ MonoBehaviour:
   behaviorTemplate: {fileID: 11400000, guid: 5604940103de82d4983e0a22759304e1, type: 2}
   maxAgentCount: 200
   startingCount: 100
-  AgentDensity: 10
+  AgentDensity: 1
   drivefactor: 1
-  maxSpeed: 10
-  neigbourgRadius: 10
-  avoidanceRadiusMultiplier: 1
+  maxSpeed: 20
+  neigbourgRadius: 2
+  avoidanceRadiusMultiplier: 10
   HurtDamage: 0
   freakOutTime: 5
   freakOutBehaviorsParam: []
@@ -1392,13 +1392,13 @@ MonoBehaviour:
   agentPrefab: {fileID: 4074421441191336749, guid: 924c2b68735ea4a4abeaa5c9e45cc244,
     type: 3}
   behaviorTemplate: {fileID: 11400000, guid: f5f3f9b746827de4baddf1df2e822232, type: 2}
-  maxAgentCount: 30
-  startingCount: 206
+  maxAgentCount: 10
+  startingCount: 1
   AgentDensity: 1
-  drivefactor: 10
-  maxSpeed: 5
-  neigbourgRadius: 10
-  avoidanceRadiusMultiplier: 0.5
+  drivefactor: 5
+  maxSpeed: 20
+  neigbourgRadius: 1
+  avoidanceRadiusMultiplier: 10
   HurtDamage: 0
   freakOutTime: 5
   freakOutBehaviorsParam: []
@@ -1564,7 +1564,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.36, z: -72.4}
+  m_LocalPosition: {x: 0, y: 5.36, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2618,6 +2618,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8487663775976823216, guid: c92f02323a8922e4387a3cf8e3e57d9f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 31279482475627549, guid: c92f02323a8922e4387a3cf8e3e57d9f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2672,6 +2677,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 31279482475627549, guid: c92f02323a8922e4387a3cf8e3e57d9f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 31279482475627549, guid: c92f02323a8922e4387a3cf8e3e57d9f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 31279482475627549, guid: c92f02323a8922e4387a3cf8e3e57d9f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1554330967768786437, guid: c92f02323a8922e4387a3cf8e3e57d9f,
         type: 3}

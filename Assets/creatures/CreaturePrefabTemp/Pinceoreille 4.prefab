@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1565788504080786753}
   - component: {fileID: 7338146637853645781}
-  - component: {fileID: 4146105289525637392}
   - component: {fileID: 6927098253298708490}
   - component: {fileID: 50750129116998984}
-  - component: {fileID: 58271723039172118}
+  - component: {fileID: 8278574211106000028}
+  - component: {fileID: 480304935869978143}
   m_Layer: 13
   m_Name: Pinceoreille 4
   m_TagString: Pinceoreille 4
@@ -55,34 +55,18 @@ MonoBehaviour:
   childPrefab: {fileID: 1565788504081283425}
   corpseName: Food
   maxHealth: 100
-  lifeTime: 60
-  foodToEatBeforeReproducing: 1
+  lifeTime: 1000
+  foodToEatBeforeReproducing: 1000
   timeBetween2Meals: 3
   SpecieToEat: poulpi 3
   attackStrength: 500
-  nutritiousValue: 0
+  nutritiousValue: 10
   IdleSound: {fileID: 7760310104283984843}
-  IdleSoundProbability: 0.5
+  IdleSoundProbability: 0.005
   DeathSound: {fileID: 7256911866808417209}
-  DeathSoundProbability: 0.5
+  DeathSoundProbability: 0.005
   EatSound: {fileID: 3209986279090466858}
-  EatSoundProbability: 0.5
---- !u!58 &4146105289525637392
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565788504081283425}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.57
+  EatSoundProbability: 0.005
 --- !u!114 &6927098253298708490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,8 +100,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58271723039172118
-CircleCollider2D:
+--- !u!70 &8278574211106000028
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -130,8 +114,24 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.41, y: 0.79}
+  m_Direction: 0
+--- !u!58 &480304935869978143
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565788504081283425}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.26}
   serializedVersion: 2
-  m_Radius: 0.53
+  m_Radius: 0.25
 --- !u!1 &4225572146880192446
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4e3bf41cb1ee7ed4a9c337195033c9b4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.564
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -302,7 +302,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e1c0c20bc124c4a4f887da0dc916284e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.564
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -429,7 +429,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: efb58e154235a50469383532c6df7d07, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.564
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -526,15 +526,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8fdb44858c8a1264aafcbcdc507bd68f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.133
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8fdb44858c8a1264aafcbcdc507bd68f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.455
+      value: -0.113
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8fdb44858c8a1264aafcbcdc507bd68f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.094279
+      value: -0.204
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8fdb44858c8a1264aafcbcdc507bd68f, type: 3}
       propertyPath: m_LocalRotation.x
