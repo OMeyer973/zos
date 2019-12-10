@@ -41,7 +41,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 08cb80db57782b346a096917a763108b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f7d1b084fbcfeab4589fb7168d238917, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.504
   m_Pitch: 1
@@ -168,7 +168,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e36426df4386f7d439182d3b49877282, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e0bd46a38567e7740ae4ab3794957584, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -315,8 +315,9 @@ MonoBehaviour:
   SpecieToEat: food
   attackStrength: 20
   nutritiousValue: 10
+  RandomPitch: 0.2
   IdleSound: {fileID: 8806716777033342360}
-  IdleSoundProbability: 0.002
+  IdleSoundProbability: 0.005
   DeathSound: {fileID: 1787810312008196944}
   DeathSoundProbability: 0.005
   EatSound: {fileID: 7352436757249644313}
@@ -427,7 +428,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 92ccffce15b0bab47baf31e6cf02ec62, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b95a4cba6c538204fbe088ddf64e53da, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.485
   m_Pitch: 1

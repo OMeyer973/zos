@@ -24,22 +24,42 @@ Adafruit_NeoPixel pixels3(stripLen, lianaPins[3], NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel pixels[4] = {pixels0,pixels1,pixels2,pixels3};
 
 // LOOK AND FEEL VARS
-float brightness = .5;
-int colors[4][2][3] = { // colors for each strip in RGB
-  { //(2 colors by strip because gradients)
-    {255 * brightness, 0   * brightness, 0   * brightness}, // RED
-    {0   * brightness, 255 * brightness, 255 * brightness}  // CYAN
-  },{
-    {0   * brightness, 255 * brightness, 0   * brightness}, // GREEN
-    {255 * brightness, 0   * brightness, 255 * brightness}  // PURPLE
-  },{
-    {0   * brightness, 0   * brightness, 255 * brightness}, // BLUE
-    {255 * brightness, 255 * brightness, 0   * brightness}  // YELLOW
-  },{
-    {255 * brightness, 255 * brightness, 0   * brightness}, // YELLOW
-    {0   * brightness, 0   * brightness, 255 * brightness}  // bLUE
+float brightness = 1;
+
+class Color {
+  public:
+  int r;
+  int g;
+  int b;
+
+  Color(int rParam, int gParam, int bParam) {
+    r = rParam * brightness; 
+    g = gParam * brightness;
+    b = bParam * brightness;
   }
 };
+
+int colors[4][2][3] = { // colors for each strip in RGB
+  { //(2 colors by strip because gradients)
+    {255 * brightness, 94  * brightness, 0   * brightness}, // BLUE
+    {255 * brightness, 0   * brightness, 184 * brightness}  // YELLOW
+  },{
+    {248 * brightness, 0   * brightness, 255 * brightness}, // YELLOW
+    {26  * brightness, 255 * brightness, 100 * brightness}  // bLUE
+  },{
+    {255 * brightness, 54  * brightness, 100 * brightness}, // RED
+    {255 * brightness, 246 * brightness, 0   * brightness}  // CYAN
+  },{
+    {255 * brightness, 229 * brightness, 0   * brightness}, // GREEN
+    {255 * brightness, 118 * brightness, 0   * brightness}  // PURPLE
+  }
+};
+
+int failColor[3] = {255, 0, 0};
+int idleColor[3] = {255, 255, 255};
+int demoColor[3] = {220, 255, 0};
+int actionColor[3] = {0, 255, 10};
+
 
 // adafruit gamma fix
 const uint8_t gamma8[] = {
@@ -60,7 +80,7 @@ const uint8_t gamma8[] = {
   177,180,182,184,186,189,191,193,196,198,200,203,205,208,210,213,
   215,218,220,223,225,228,231,233,236,239,241,244,247,249,252,255 };
 
-uint32_t deltaTime = 16L; // minimum time between 2 loops (in ms) 16ms->60fps
+uint32_t  deltaTime = 0L; // minimum time between 2 loops (in ms) 16ms->60fps
 // -> directly linked to the speed of the animations
 
 // LOGIC VARS
@@ -73,7 +93,6 @@ int lianaMin[4] = {-1,-1,-1,-1};
 int lianaMax[4] = {-1,-1,-1,-1};
 
 bool sensorStates[4] = {false,false,false,false};
-
 
 
 // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  

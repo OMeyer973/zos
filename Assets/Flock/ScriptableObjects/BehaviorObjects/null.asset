@@ -15,3 +15,4 @@ MonoBehaviour:
   filter: {fileID: 0}
   behaviors: []
   weights: []
+  behaviorIntensity: 0

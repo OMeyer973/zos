@@ -197,7 +197,7 @@ namespace Zos
       {
         Debug.Log(simonSequence);
 
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(5);
 
         // for (int i = 0; i < simonSequence.SequenceSize(); i++)
         while (!simonSequence.IsFinished())
@@ -207,9 +207,9 @@ namespace Zos
           simonSequence.NextLiana();
           //yield on a new YieldInstruction that waits for 5 seconds.
           if (!simonSequence.IsFinished())
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2.5f);
           else
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2f);
         }
 
         GoToActionScene();
@@ -250,9 +250,12 @@ namespace Zos
       if (ActionTime > MaxActionTime)
       {
         Debug.Log("SimonEngine: Action time is up ! going back to Idle mode");
-        Start();
+        CurrScene = Scene.Idle;
+        ResetLianaStates();
+        arduinoWhisperer.ChangeScene(Scene.Idle, Transition.SimonStart);
       }
     }
+
 
     void Update()
     {

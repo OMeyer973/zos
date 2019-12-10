@@ -347,6 +347,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: poulpi 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4074421441191336749, guid: 924c2b68735ea4a4abeaa5c9e45cc244,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4074421441191626509, guid: 924c2b68735ea4a4abeaa5c9e45cc244,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1062,7 +1067,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e5b4de82b6fde6f4bb3ba96a1b6db634, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1189,7 +1194,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 33b6a3b8f98a2934da274013f1472237, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1802,7 +1807,7 @@ GameObject:
   - component: {fileID: 652739981}
   - component: {fileID: 652739982}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BackgroundMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1834,7 +1839,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7cbfa677d7396a443afcb03ecf182d84, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1949,7 +1954,7 @@ Light:
   m_Color: {r: 1, g: 0.8666038, b: 0.5235849, a: 1}
   m_Intensity: 1
   m_Range: 800
-  m_SpotAngle: 111
+  m_SpotAngle: 133.4
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -1982,7 +1987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -40}
+  m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1777923539}
@@ -2145,6 +2150,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: snake 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006026793700664116, guid: d65e94398e4d2c24894eb8be8ab6f9b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8006026793700664075, guid: d65e94398e4d2c24894eb8be8ab6f9b1,
         type: 3}
@@ -3270,7 +3280,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3647af3d21e59504fbbfed20aff4f81a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7c9999c102611444d8870ff2f45f1887, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3538,7 +3548,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0fa2a4cc637b82a4aa6c15c2e77e910f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: af4ff9e855ee9074aa5f0dbf7c7aae88, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

@@ -23,13 +23,16 @@ public class CompositeBehavior : FilteredFlockBehavior
 
         float totalWeight = 0f;
         for (int i = 0; i < behaviors.Length; i++)
-        {
-            Vector2 partialMove = behaviors[i].CalculateMove(agent, context, flock) * weights[i];
-            totalWeight += weights[i];
-
-            if (partialMove != Vector2.zero)
+        {   
+            if (behaviors[i] != null)
             {
-                move += partialMove;
+                Vector2 partialMove = behaviors[i].CalculateMove(agent, context, flock) * weights[i];
+                totalWeight += weights[i];
+
+                if (partialMove != Vector2.zero)
+                {
+                    move += partialMove;
+                }
             }
         }
         if (totalWeight != 0)
