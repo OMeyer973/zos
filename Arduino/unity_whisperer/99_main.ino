@@ -25,17 +25,17 @@ void loop() {
     case 'I': // idle scene
       GetSensorInput();
       idleScene.updateLianas();
-      animation.rainUpAnimation(.1);
+      animation.rainUpAnimation(.15, idleColor[0], idleColor[1], idleColor[2]);
       break;
     case 'D': // demo scene
       demoScene.beginLianaAnimationOnCommand(serialMsg);
       demoScene.updateLianas();
-      animation.rainDownAnimation(.1);
+      animation.rainDownAnimation(.15, demoColor[0], demoColor[1], demoColor[2]);
       break;
     case 'A': // action scene
       GetSensorInput();
       actionScene.updateLianas();
-      animation.rainUpAnimation(.1);
+      animation.rainUpAnimation(.15, actionColor[0], actionColor[1], actionColor[2]);
       break;
     default: break;
   }
@@ -91,7 +91,7 @@ void initScene(char scene) {
 // the boolean values we use in our program
 void GetSensorInput() {
   //Serial.print("sensor values [");
-  int sensorValue =0;
+  int sensorValue = 0;
   for (int i=0; i<4; i++) {
     sensorValue = analogRead(sensorPins[i]);
     bool newSensorState = sensorValue < sensorThreshold;
@@ -102,7 +102,6 @@ void GetSensorInput() {
         idleScene.notifyUnityOfLianaChange(i, newSensorState);
       }
     }
-    
     sensorStates[i] = newSensorState;
 
     //Serial.print(", ");

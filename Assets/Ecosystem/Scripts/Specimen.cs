@@ -33,6 +33,7 @@ public class Specimen : MonoBehaviour
     public float nutritiousValue;
 
     [Header("Sounds")]
+    public float RandomPitch = .2f;
     public AudioSource IdleSound;
     public float IdleSoundProbability = .5f;
     public AudioSource DeathSound;
@@ -55,6 +56,7 @@ public class Specimen : MonoBehaviour
     {
         if (UnityEngine.Random.Range(0f, 1f) < IdleSoundProbability * Time.deltaTime && IdleSound != null)
         {
+            IdleSound.pitch = UnityEngine.Random.Range(1 - RandomPitch, 1 + RandomPitch);
             IdleSound.Play();
         }
         aliveTime += Time.deltaTime;
@@ -81,6 +83,7 @@ public class Specimen : MonoBehaviour
     {
         if (UnityEngine.Random.Range(0f, 1f) > EatSoundProbability && EatSound != null)
         {
+            EatSound.pitch = UnityEngine.Random.Range(1 - RandomPitch, 1 + RandomPitch);
             EatSound.Play();
         }
 
@@ -126,6 +129,7 @@ public class Specimen : MonoBehaviour
     {
         if (UnityEngine.Random.Range(0f, 1f) > DeathSoundProbability && DeathSound != null)
         {
+            DeathSound.pitch = UnityEngine.Random.Range(1- RandomPitch, 1+ RandomPitch);
             DeathSound.Play();
         }
         if (corpseSpecie != null)

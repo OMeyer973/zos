@@ -19,16 +19,16 @@ class Animation
 
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
   // displays a fade in & out animation on the LED stri
-  void rainAnimation(float animationSpeed, bool goingUp) {
+  void rainAnimation(float animationSpeed, bool goingUp, int r, int g, int b) {
     int dropLength = 2;
     
     float t = animationSpeed * (float)frame;
     int animationFrame = (int)t;
-    int v = getFadeIn(t, animationSpeed)*.1;
-    int w = getFadeOut(t, animationSpeed)*.1;
+    float v = getFadeIn(t, animationSpeed)*.1;
+    float w = getFadeOut(t, animationSpeed)*.1;
     
     for (int liana=0; liana<4; liana++) {
-      for (int i=1; i<6; i++) { // had a glitchy led when starting at 0...
+      for (int i=1; i<4; i++) { // had a glitchy led when starting at 0...
         int frontPixel = int((randomFloats[liana] + randomFloats[i])*stripLen + animationFrame) % (stripLen +2); // +2 for oob margin lol
         int backPixel = (frontPixel - dropLength) % (stripLen +2); // +2 for oob margin lol
         if (goingUp) {
@@ -36,9 +36,9 @@ class Animation
           backPixel = stripLen - backPixel - 1;
         }
         if (!between(frontPixel, lianaMin[liana], lianaMax[liana]))
-          pixels[liana].setPixelColor(frontPixel, pixels[liana].Color(v, v, v));
+          pixels[liana].setPixelColor(frontPixel, pixels[liana].Color(r*v, g*v, b*v));
         if (!between(backPixel, lianaMin[liana], lianaMax[liana]))
-          pixels[liana].setPixelColor(backPixel, pixels[liana].Color(w, w, w));
+          pixels[liana].setPixelColor(backPixel, pixels[liana].Color(r*w, g*w, b*w));
       }
       //pixels[liana].show();
     }
@@ -46,14 +46,14 @@ class Animation
   
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
   // displays a fade in & out animation on the LED strip
-  void rainDownAnimation(float animationSpeed) {
-    rainAnimation(animationSpeed, false);
+  void rainDownAnimation(float animationSpeed, int r, int g, int b) {
+    rainAnimation(animationSpeed, false, r, g, b);
   }
   
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
   // displays a fade in & out animation on the LED strip
-  void rainUpAnimation(float animationSpeed) {
-    rainAnimation(animationSpeed, true);
+  void rainUpAnimation(float animationSpeed,  int r, int g, int b) {
+    rainAnimation(animationSpeed, true, r, g, b);
   }
   
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
@@ -62,27 +62,28 @@ class Animation
     switch (transition) {
     case 'S': // SimonStart
       //openAnimation(.4);
-      fadeAnimation(.2);
-      goDownAnimation(.5);
+      fadeAnimation(1, idleColor[0], idleColor[1], idleColor[2]);
+      fadeAnimation(.15, demoColor[0], demoColor[1], demoColor[2]);
+      //goDownAnimation(.8);
       break;
     case 'A': // BeginAction
-      fadeAnimation(.2);
-      goUpAnimation(.5);
+      fadeAnimation(.15, actionColor[0], actionColor[1], actionColor[2]);
+      //goUpAnimation(.8);
       break;
     case 'V': // SmallVictory
-      fadeAnimation(.2);
-      goDownAnimation(.5);
+      fadeAnimation(.15, demoColor[0], demoColor[1], demoColor[2]);
+      //goDownAnimation(.8);
       break;
     case 'W': // BigVictory
-      fadeAnimation(.2);
-      openAnimation(1);
-      openAnimation(1);
-      openAnimation(1);
+      fadeAnimation(.2, idleColor[0], idleColor[1], idleColor[2]);
+      openAnimation(.3, idleColor[0], idleColor[1], idleColor[2]);
+      fadeAnimation(.2, idleColor[0], idleColor[1], idleColor[2]);
       break;
     case 'F': // Fail
-      closeAnimation(1);
-      closeAnimation(1);
-      closeAnimation(1);
+      fadeAnimation(1, failColor[0], failColor[1], failColor[2]);
+      closeAnimation(1, failColor[0], failColor[1], failColor[2]);
+      closeAnimation(1, failColor[0], failColor[1], failColor[2]);
+      closeAnimation(1, failColor[0], failColor[1], failColor[2]);
       break;
     default:
       break;
@@ -92,14 +93,14 @@ class Animation
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
   // get the display value for a smooth fade in.
   // only fade if the animationSpeed is low enough
-  int getFadeIn(float t, float animationSpeed) {
+  float getFadeIn(float t, float animationSpeed) {
     int v;
-    if (animationSpeed < .3) {
+    if (animationSpeed < .15) {
       int i = (int)t;
-      int v = (t*255 - i*255) * brightness;
-      return gamma8[v];
+      v = (t*255 - i*255) * brightness;
+      return gamma8[v] / (float)255;
     }
-    return gamma8[int(255*brightness)];
+    return gamma8[int(255*brightness)] / (float)255;
   }
   
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
@@ -109,24 +110,24 @@ class Animation
     if (animationSpeed < .3) {
       int i = (int)t;
       int w = (255-(t*255 - i*255)) * brightness; // current erase value for a smooth fade
-      return gamma8[w];  
+      return gamma8[w] / (float)255;  
     }
     return 0;
   }
 
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
   // displays a fade in & out animation on the LED strip
-  void fadeAnimation(float animationSpeed) {
+  void fadeAnimation(float animationSpeed, int r, int g, int b) {
     int bandLength = halfStripLen;
     
     float dt = 2*PI / stripLen * animationSpeed;
     for (float t=0; t<2*PI; t+=dt) {
       uint32_t loopStartTime = millis();
-      int v = gamma8[int((.5-cos(t)*.5)*255*brightness)];
+      float v = gamma8[int((.5-cos(t)*.5)*255*brightness)] / (float)255;
       
       for (int liana=0; liana<4; liana++) {
         for (int i=0; i<stripLen; i++) {
-          pixels[liana].setPixelColor(i, pixels[i].Color(v, v, v));
+          pixels[liana].setPixelColor(i, pixels[i].Color(r*v, g*v, b*v));
         }
         pixels[liana].show();
       }
@@ -137,20 +138,20 @@ class Animation
   }
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
   // displays a blind opening animation on the LED strip
-  void openAnimation(float animationSpeed) {
+  void openAnimation(float animationSpeed, int r, int g, int b) {
     int bandLength = halfStripLen;
 
     for (float t=0; t<=halfStripLen+bandLength+2; t+=animationSpeed) {
       int i = (int)t;
       uint32_t loopStartTime = millis();
-      int v = getFadeIn(t, animationSpeed);
-      int w = getFadeOut(t, animationSpeed);
+      float v = getFadeIn(t, animationSpeed);
+      float w = getFadeOut(t, animationSpeed);
       for (int liana=0; liana<4; liana++) {
-        pixels[liana].setPixelColor(halfStripLen + i, pixels[i].Color(v, v, v));
-        pixels[liana].setPixelColor(halfStripLen - i, pixels[i].Color(v, v, v));
+        pixels[liana].setPixelColor(halfStripLen + i, pixels[i].Color(r*v, g*v, b*v));
+        pixels[liana].setPixelColor(halfStripLen - i, pixels[i].Color(r*v, g*v, b*v));
         if(i > bandLength) {
-          pixels[liana].setPixelColor(max(halfStripLen + i - bandLength, halfStripLen), pixels[i].Color(w, w, w));
-          pixels[liana].setPixelColor(min(halfStripLen - i + 1 + bandLength, halfStripLen), pixels[i].Color(w, w, w));          
+          pixels[liana].setPixelColor(max(halfStripLen + i - bandLength, halfStripLen), pixels[i].Color(r*w, g*w, b*w));
+          pixels[liana].setPixelColor(min(halfStripLen - i + 1 + bandLength, halfStripLen), pixels[i].Color(r*w, g*w, b*w));          
         }
         pixels[liana].show();
       }
@@ -162,21 +163,21 @@ class Animation
   
   // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
   // displays a blind closing animation on the LED strip
-  void closeAnimation(float animationSpeed) {
+  void closeAnimation(float animationSpeed, int r, int g, int b) {
     int bandLength = halfStripLen;
 
     for (float t=0; t<=halfStripLen+bandLength + 2; t+=animationSpeed) {
       int i = (int)t;
       uint32_t loopStartTime = millis();
-      int v = getFadeIn(t, animationSpeed);
-      int w = getFadeOut(t, animationSpeed);
+      float v = getFadeIn(t, animationSpeed);
+      float w = getFadeOut(t, animationSpeed);
       for (int liana=0; liana<4; liana++) {
         if (i < halfStripLen){          
-          pixels[liana].setPixelColor(min(i + 1, halfStripLen), pixels[i].Color(v, v, v));
-          pixels[liana].setPixelColor(max(stripLen - i, halfStripLen), pixels[i].Color(v, v, v));
+          pixels[liana].setPixelColor(min(i + 1, halfStripLen), pixels[i].Color(v, 0, 0));
+          pixels[liana].setPixelColor(max(stripLen - i, halfStripLen), pixels[i].Color(v, 0, 0));
         }
-        pixels[liana].setPixelColor(min(i - bandLength, halfStripLen), pixels[i].Color(w, w, w));
-        pixels[liana].setPixelColor(max(bandLength + stripLen - i, halfStripLen), pixels[i].Color(w, w, w));
+        pixels[liana].setPixelColor(min(i - bandLength, halfStripLen), pixels[i].Color(w, 0, 0));
+        pixels[liana].setPixelColor(max(bandLength + stripLen - i, halfStripLen), pixels[i].Color(w, 0, 0));
 
         pixels[liana].show();
       }
@@ -197,8 +198,8 @@ class Animation
       else
         i = stripLen - (int)t;
       uint32_t loopStartTime = millis();
-      int v = getFadeIn(t, animationSpeed);
-      int w = getFadeOut(t, animationSpeed);
+      float v = getFadeIn(t, animationSpeed);
+      float w = getFadeOut(t, animationSpeed);
       for (int liana=0; liana<4; liana++) {
         pixels[liana].setPixelColor(stripLen - i, pixels[i].Color(v,v,v));
         if (isUp)
