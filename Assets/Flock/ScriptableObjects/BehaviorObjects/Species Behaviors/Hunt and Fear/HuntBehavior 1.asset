@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17561fd6829efa74ea4ef62db1dff32e, type: 3}
-  m_Name: Huntbehavior 1
+  m_Name: HuntBehavior 1
   m_EditorClassIdentifier: 
   filter: {fileID: 11400000, guid: 096df743dc551614cb3a88a2155c55a4, type: 2}
