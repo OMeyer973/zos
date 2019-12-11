@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217432367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8006026793700664075}
@@ -50,8 +50,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d307c85440dd6ae408fd7d302cdb1b97, type: 2}
-  - {fileID: 2100000, guid: 5d2aa9dc5aa930648bfbc0c7c3a8985a, type: 2}
+  - {fileID: 2100000, guid: 504d68f97087c4442880460770269012, type: 2}
+  - {fileID: 2100000, guid: c9f85dd3be47637468a1298fe92d3b4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4795,7 +4795,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d0369fe22d80e5e439d5d330cd430374, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.492
+  m_Volume: 0.062
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4922,13 +4922,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a20aa208a14cae44b95b731dc8eb3684, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.378
+  m_Volume: 0.038
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5036,7 +5036,7 @@ Transform:
   m_GameObject: {fileID: 8006026793700664116}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -1.33, y: 6.6, z: -4.23}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1217432368}
   - {fileID: 6040785289832926859}
@@ -5091,13 +5091,13 @@ MonoBehaviour:
   maxHealth: 100
   lifeTime: 500
   foodToEatBeforeReproducing: 50
-  timeBetween2Meals: 3
+  timeBetween2Meals: 5
   SpecieToEat: Cellule 1
-  attackStrength: 25
-  nutritiousValue: 50
+  attackStrength: 10
+  nutritiousValue: 25
   RandomPitch: 0.2
   IdleSound: {fileID: 8903818070043033299}
-  IdleSoundProbability: 0.005
+  IdleSoundProbability: 0.0005
   DeathSound: {fileID: 4353084542660525849}
   DeathSoundProbability: 0.005
   EatSound: {fileID: 3343003968574711673}
@@ -5182,7 +5182,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ae77c8c1593c05b4cbf963794593d687, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.492
+  m_Volume: 0.079
   m_Pitch: 1
   Loop: 0
   Mute: 0

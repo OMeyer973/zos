@@ -46,8 +46,8 @@ MonoBehaviour:
   agentPrefab: {fileID: 7290105488294986355, guid: 0a0b65ccca2a43f49a1d39c66af603f7,
     type: 3}
   behaviorTemplate: {fileID: 11400000, guid: 5604940103de82d4983e0a22759304e1, type: 2}
-  maxAgentCount: 200
-  startingCount: 100
+  maxAgentCount: 100
+  startingCount: 50
   AgentDensity: 1
   drivefactor: 1
   maxSpeed: 20
