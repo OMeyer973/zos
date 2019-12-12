@@ -4795,7 +4795,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d0369fe22d80e5e439d5d330cd430374, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.062
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4922,13 +4922,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a20aa208a14cae44b95b731dc8eb3684, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.038
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 100
+  Priority: 161
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5097,7 +5097,7 @@ MonoBehaviour:
   nutritiousValue: 25
   RandomPitch: 0.2
   IdleSound: {fileID: 8903818070043033299}
-  IdleSoundProbability: 0.0005
+  IdleSoundProbability: 0.005
   DeathSound: {fileID: 4353084542660525849}
   DeathSoundProbability: 0.005
   EatSound: {fileID: 3343003968574711673}
@@ -5182,7 +5182,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ae77c8c1593c05b4cbf963794593d687, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.079
+  m_Volume: 0.096
   m_Pitch: 1
   Loop: 0
   Mute: 0

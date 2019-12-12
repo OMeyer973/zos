@@ -342,7 +342,7 @@ MonoBehaviour:
   corpseName: Food
   maxHealth: 100
   lifeTime: 6000
-  foodToEatBeforeReproducing: 200
+  foodToEatBeforeReproducing: 300
   timeBetween2Meals: 4
   SpecieToEat: snake 2
   attackStrength: 50
