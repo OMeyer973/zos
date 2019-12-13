@@ -23,7 +23,7 @@ public class EcosystemManager : MonoBehaviour
     // drop one food bit in the ecosystem
     void DropFood()
     {
-        Debug.Log("dropping food");
+        // Debug.Log("dropping food");
         Vector3 spawnPosition = Random.insideUnitSphere * EcosystemRadius;
         spawnPosition.z = 0;
         foodSpecie.GetComponent<Specie>().SpawnAgent(spawnPosition, Quaternion.Euler(spawnPosition));
@@ -114,7 +114,7 @@ public class EcosystemManager : MonoBehaviour
         bool canAddMore = true;
         foreach (GameObject specieObject in species)
         {
-            Debug.Log("adding specie");
+            // Debug.Log("adding specie");
             if (canAddMore)
             {
                 Specie specie = specieObject.GetComponent<Specie>();

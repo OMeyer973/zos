@@ -10,11 +10,11 @@
 // HARDWARE VARS
 int sensorPins[4] = {A0,A1,A2,A3};   // Pins in which the sensorStates are plugged
 
-int sensorThreshold = 10; 
+int sensorThreshold = 20; 
 
 int stripLen = 60;                   // number of LEDs on the strips
 
-int lianaPins[4] = {5,6,10,11};       // pins in which tle strips are plugged
+int lianaPins[4] = {5,6,9,11};       // pins in which tle strips are plugged
 
 Adafruit_NeoPixel pixels0(stripLen, lianaPins[0], NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel pixels1(stripLen, lianaPins[1], NEO_GRB + NEO_KHZ800);
@@ -92,6 +92,7 @@ int lianaBack[4] = {-1,-1,-1,-1};
 int lianaMin[4] = {-1,-1,-1,-1};
 int lianaMax[4] = {-1,-1,-1,-1};
 
+float sensorValues[4] = {0,0,0,0};
 bool sensorStates[4] = {false,false,false,false};
 
 

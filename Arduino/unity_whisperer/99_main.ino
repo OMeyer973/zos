@@ -8,6 +8,7 @@ void setup() {
 
   for (int i=0; i<4; i++) {
     pixels[i].begin();    
+    pixels[i].clear();
   }
   initScene(currScene);
 }
@@ -94,7 +95,8 @@ void GetSensorInput() {
   int sensorValue = 0;
   for (int i=0; i<4; i++) {
     sensorValue = analogRead(sensorPins[i]);
-    bool newSensorState = sensorValue < sensorThreshold;
+    sensorValues[i] = sensorValues[i] *.9 + (float)sensorValue * .1;
+    bool newSensorState = sensorValues[i] < sensorThreshold;
 
     // on sensor state change
     if (newSensorState != sensorStates[i]) {
@@ -104,10 +106,11 @@ void GetSensorInput() {
     }
     sensorStates[i] = newSensorState;
 
-    //Serial.print(", ");
-    //Serial.print(sensorStates[i]);    
+    // Serial.print(", ");
+    // Serial.print(sensorValue);    
+    // Serial.print(sensorStates[i]);    
   }
-  //Serial.println("]");
+  // Serial.println("]");
 }
 
 // -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  

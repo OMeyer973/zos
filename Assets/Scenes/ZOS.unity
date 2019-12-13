@@ -1068,7 +1068,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e5b4de82b6fde6f4bb3ba96a1b6db634, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 54318db1ef47d5b4ca76bb6de38db7e9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1959,7 +1959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &824918923
 Transform:
   m_ObjectHideFlags: 0
@@ -2165,15 +2165,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11442534, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
       propertyPath: portName
-      value: COM7
+      value: COM3
       objectReference: {fileID: 0}
     - target: {fileID: 11442534, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
       propertyPath: maxUnreadMessages
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 11442534, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
       propertyPath: reconnectionDelay
-      value: 100000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 405068, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3646,7 +3646,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: af4ff9e855ee9074aa5f0dbf7c7aae88, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0fa2a4cc637b82a4aa6c15c2e77e910f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
