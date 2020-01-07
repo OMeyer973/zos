@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d12d424eca47d9439915148ab53ebed, type: 3}
   m_Name: FearBehavior 2
   m_EditorClassIdentifier: 
-  filter: {fileID: 11400000, guid: bd5947b6afca96b4db64c69f129d3154, type: 2}
+  filter: {fileID: 11400000, guid: 35e69589bb1b62948ba717a5351316c3, type: 2}

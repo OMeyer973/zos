@@ -155,7 +155,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7c3a4e9a6b5b192448dc1ca25dcc9baa, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.546
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -917,6 +917,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5426661294048479157, guid: feedeeeba7e89fa4b9adc4671bfa79c4,
+        type: 3}
+      propertyPath: HurtDamage
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: feedeeeba7e89fa4b9adc4671bfa79c4, type: 3}
 --- !u!1 &302773970 stripped
@@ -1496,6 +1501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxAgentCount
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080985757365648941, guid: 7d9b6824aec4e424b852810443b49f2c,
+        type: 3}
+      propertyPath: HurtDamage
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d9b6824aec4e424b852810443b49f2c, type: 3}
@@ -2304,6 +2314,16 @@ PrefabInstance:
       propertyPath: maxAgentCount
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 963629094208028800, guid: 52fec50d9032b184580813cc6c880117,
+        type: 3}
+      propertyPath: HurtDamage
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 963629094208028800, guid: 52fec50d9032b184580813cc6c880117,
+        type: 3}
+      propertyPath: freakOutMaxSpeed
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52fec50d9032b184580813cc6c880117, type: 3}
 --- !u!1 &1180810862 stripped
@@ -2399,6 +2419,11 @@ PrefabInstance:
         type: 3}
       propertyPath: avoidanceRadiusMultiplier
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8342883951159736985, guid: 719b841f1a5780e4eaa6b1a4e4f1c41c,
+        type: 3}
+      propertyPath: HurtDamage
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 719b841f1a5780e4eaa6b1a4e4f1c41c, type: 3}
